@@ -6,6 +6,7 @@ import com.github.microprograms.micro_api_runtime.model.Operator;
 import com.github.microprograms.ignite_utils.IgniteUtils;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiExecuteException;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
+import com.github.microprograms.yy_vip_center_manager_api.utils.Commons;
 import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
@@ -15,12 +16,13 @@ import com.github.microprograms.micro_entity_definition_runtime.annotation.Requi
 @MicroApiAnnotation(type = "read", version = "v0.0.2")
 public class GoodsBuyLimit_Add_Api {
 
-    private static Operator<?> getOperator(Req req) {
-        return null;
+    private static Operator<?> getOperator(Req req) throws Exception {
+        return Commons.buildOperator(GoodsBuyLimit_Add_Api.class, req.getToken());
     }
 
     private static GoodsBuyLimit buildGoodsBuyLimit(Req req) {
-        return null;
+        GoodsBuyLimit goodsBuyLimit = new GoodsBuyLimit();
+        return goodsBuyLimit;
     }
 
     private static void core(Req req, Response resp) throws Exception {
