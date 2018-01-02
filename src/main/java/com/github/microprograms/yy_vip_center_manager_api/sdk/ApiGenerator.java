@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.github.microprograms.micro_api_sdk.model.EngineDefinition;
 import com.github.microprograms.micro_api_sdk.utils.ApiDocumentForShowdocUtils;
 import com.github.microprograms.micro_api_sdk.utils.ApiEngineGeneratorUtils;
+import com.github.microprograms.micro_api_sdk.utils.api_engine_generator_callback.SmartCallback;
 
 public class ApiGenerator {
     public static void main(String[] args) throws IOException {
@@ -14,6 +15,7 @@ public class ApiGenerator {
 
     public static void publicApi() throws IOException {
         String srcFolder = "src/main/java";
+        ApiEngineGeneratorUtils.setCallback(new SmartCallback());
         EngineDefinition engineDefinition = ApiEngineGeneratorUtils.buildEngineDefinition("design/public-api.json");
         ApiEngineGeneratorUtils.deleteModelJavaFiles(srcFolder, engineDefinition);
         ApiEngineGeneratorUtils.createModelJavaFiles(srcFolder, engineDefinition);

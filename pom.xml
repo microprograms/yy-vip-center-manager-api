@@ -92,13 +92,8 @@
         </dependency>
         <dependency>
             <groupId>com.github.microprograms</groupId>
-            <artifactId>ignite-utils</artifactId>
-            <version>1.0.24</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.microprograms</groupId>
             <artifactId>micro-api-sdk</artifactId>
-            <version>1.0.8.r3</version>
+            <version>1.0.8.r5</version>
         </dependency>
         <dependency>
             <groupId>com.github.microprograms</groupId>
