@@ -6,65 +6,35 @@ import com.github.microprograms.micro_api_runtime.exception.MicroApiExecuteExcep
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
 import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.model.Request;
-import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
 
-@Comment(value = "用户 - 查询详情")
+@Comment(value = "商品限购 - 查询全部")
 @MicroApiAnnotation(type = "read", version = "v0.0.2")
-public class User_QueryDetail_Api {
+public class GoodsBuyLimit_QueryAll_Api {
 
-    private static void core(Req req, Resp resp) throws Exception {
+    private static void core(Request req, Resp resp) throws Exception {
         Object doSomeThingHere;
         throw new MicroApiExecuteException(MicroApiReserveResponseCodeEnum.api_not_implemented_exception);
     }
 
     public static Response execute(Request request) throws Exception {
-        Req req = (Req) request;
-        MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
-        MicroApiUtils.throwExceptionIfBlank(req.getUserId(), "userId");
+        Request req = request;
         Resp resp = new Resp();
         core(req, resp);
         return resp;
     }
 
-    public static class Req extends Request {
-
-        @Comment(value = "Token")
-        @Required(value = true)
-        private String token;
-
-        public String getToken() {
-            return token;
-        }
-
-        public void setToken(String token) {
-            this.token = token;
-        }
-
-        @Comment(value = "用户ID")
-        @Required(value = true)
-        private String userId;
-
-        public String getUserId() {
-            return userId;
-        }
-
-        public void setUserId(String userId) {
-            this.userId = userId;
-        }
-    }
-
     public static class Resp extends Response {
 
-        @Comment(value = "用户详情")
+        @Comment(value = "商品限购列表(全部)")
         @Required(value = true)
-        private User data;
+        private java.util.List<GoodsBuyLimit> data;
 
-        public User getData() {
+        public java.util.List<GoodsBuyLimit> getData() {
             return data;
         }
 
-        public void setData(User data) {
+        public void setData(java.util.List<GoodsBuyLimit> data) {
             this.data = data;
         }
     }

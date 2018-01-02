@@ -9,7 +9,7 @@ import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
 
 @Comment(value = "商品类别 - 查询全部")
-@MicroApiAnnotation(type = "read", version = "v0.0.1")
+@MicroApiAnnotation(type = "read", version = "v0.0.2")
 public class GoodsCategory_QueryAll_Api {
 
     private static void core(Request req, Resp resp) throws Exception {

@@ -9,9 +9,9 @@ import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
 
-@Comment(value = "商品类别 - 更新商品类别")
+@Comment(value = "商品限购 - 新增商品限购")
 @MicroApiAnnotation(type = "read", version = "v0.0.2")
-public class GoodsCategory_Update_Api {
+public class GoodsBuyLimit_Add_Api {
 
     private static void core(Req req, Response resp) throws Exception {
         Object doSomeThingHere;
@@ -21,9 +21,9 @@ public class GoodsCategory_Update_Api {
     public static Response execute(Request request) throws Exception {
         Req req = (Req) request;
         MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
-        MicroApiUtils.throwExceptionIfBlank(req.getCategoryId(), "categoryId");
-        MicroApiUtils.throwExceptionIfBlank(req.getName(), "name");
-        MicroApiUtils.throwExceptionIfBlank(req.getReorder(), "reorder");
+        MicroApiUtils.throwExceptionIfBlank(req.getGoodsId(), "goodsId");
+        MicroApiUtils.throwExceptionIfBlank(req.getUserId(), "userId");
+        MicroApiUtils.throwExceptionIfBlank(req.getAmount(), "amount");
         Response resp = new Response();
         core(req, resp);
         return resp;
@@ -43,40 +43,40 @@ public class GoodsCategory_Update_Api {
             this.token = token;
         }
 
-        @Comment(value = "商品类别ID")
+        @Comment(value = "商品ID")
         @Required(value = true)
-        private String categoryId;
+        private String goodsId;
 
-        public String getCategoryId() {
-            return categoryId;
+        public String getGoodsId() {
+            return goodsId;
         }
 
-        public void setCategoryId(String categoryId) {
-            this.categoryId = categoryId;
+        public void setGoodsId(String goodsId) {
+            this.goodsId = goodsId;
         }
 
-        @Comment(value = "商品类别名称")
+        @Comment(value = "用户ID")
         @Required(value = true)
-        private String name;
+        private String userId;
 
-        public String getName() {
-            return name;
+        public String getUserId() {
+            return userId;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setUserId(String userId) {
+            this.userId = userId;
         }
 
-        @Comment(value = "排序")
+        @Comment(value = "限购数量")
         @Required(value = true)
-        private Integer reorder;
+        private Integer amount;
 
-        public Integer getReorder() {
-            return reorder;
+        public Integer getAmount() {
+            return amount;
         }
 
-        public void setReorder(Integer reorder) {
-            this.reorder = reorder;
+        public void setAmount(Integer amount) {
+            this.amount = amount;
         }
     }
 }

@@ -976,6 +976,150 @@
 				]
 			},
 			"type": "read"
+		},
+		{
+			"comment": "商品限购 - 查询全部",
+			"javaClassName": "GoodsBuyLimit_QueryAll_Api",
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品限购列表(全部)",
+						"example": "example",
+						"javaType": "java.util.List<GoodsBuyLimit>",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品限购 - 查询详情",
+			"javaClassName": "GoodsBuyLimit_QueryDetail_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品限购ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "buyLimitId",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品限购详情",
+						"example": "example",
+						"javaType": "GoodsBuyLimit",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品限购 - 新增商品限购",
+			"javaClassName": "GoodsBuyLimit_Add_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "goodsId",
+						"primaryKey": 0,
+						"required": true
+					},
+					{
+						"comment": "用户ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "userId",
+						"primaryKey": 0,
+						"required": true
+					},
+					{
+						"comment": "限购数量",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "amount",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品限购 - 删除商品限购",
+			"javaClassName": "GoodsBuyLimit_Delete_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品限购ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "buyLimitId",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品限购 - 更新商品限购",
+			"javaClassName": "GoodsBuyLimit_Update_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品限购ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "buyLimitId",
+						"required": true
+					},
+					{
+						"comment": "限购数量",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "amount",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"type": "read"
 		}
 	],
 	"comment": "yy-vip-center-manager-api",
@@ -1070,5 +1214,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.1"
+	"version": "v0.0.2"
 }

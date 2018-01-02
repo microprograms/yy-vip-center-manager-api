@@ -10,7 +10,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
 
 @Comment(value = "系统 - 退出")
-@MicroApiAnnotation(type = "read", version = "v0.0.1")
+@MicroApiAnnotation(type = "read", version = "v0.0.2")
 public class System_Logout_Api {
 
     private static void core(Req req, Response resp) throws Exception {

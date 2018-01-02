@@ -9,7 +9,7 @@ import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
 
 @Comment(value = "调试 - Ignite")
-@MicroApiAnnotation(type = "read", version = "v0.0.1")
+@MicroApiAnnotation(type = "read", version = "v0.0.2")
 public class Debug_Ignite_Api {
 
     private static void core(Request req, Resp resp) throws Exception {
