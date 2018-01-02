@@ -1,0 +1,1074 @@
+{
+	"apiDefinitions": [
+		{
+			"comment": "系统 - 登录",
+			"javaClassName": "System_Login_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "登录名",
+						"example": "example",
+						"javaType": "String",
+						"name": "loginName",
+						"required": true
+					},
+					{
+						"comment": "登录密码",
+						"example": "example",
+						"javaType": "String",
+						"name": "loginPassword",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "个人资料详情",
+						"example": "example",
+						"javaType": "AdminUser",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "系统 - 退出",
+			"javaClassName": "System_Logout_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "系统 - 检查Token是否有效",
+			"javaClassName": "System_IsValidToken_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "是否有效(0否1是)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "系统 - 修改我的密码",
+			"javaClassName": "System_UpdateMyPassword_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "旧的登录密码",
+						"example": "example",
+						"javaType": "String",
+						"name": "oldLoginPassword",
+						"primaryKey": 0,
+						"required": true
+					},
+					{
+						"comment": "新的登录密码",
+						"example": "example",
+						"javaType": "String",
+						"name": "newLoginPassword",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "调试 - Ignite",
+			"javaClassName": "Debug_Ignite_Api",
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "缓存名列表",
+						"example": "example",
+						"javaType": "java.util.List<String>",
+						"name": "cacheNames",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "管理员 - 查询全部",
+			"javaClassName": "AdminUser_QueryAll_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "管理员列表",
+						"example": "example",
+						"javaType": "java.util.List<AdminUser>",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "管理员 - 查询详情",
+			"javaClassName": "AdminUser_QueryDetail_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "管理员ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "adminUserId",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "管理员详情",
+						"example": "example",
+						"javaType": "AdminUser",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "管理员 - 添加",
+			"javaClassName": "AdminUser_Add_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "登录名",
+						"example": "example",
+						"javaType": "String",
+						"name": "loginName",
+						"required": true
+					},
+					{
+						"comment": "登录密码",
+						"example": "example",
+						"javaType": "String",
+						"name": "loginPassword",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "管理员 - 删除",
+			"javaClassName": "AdminUser_Delete_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "管理员ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "adminUserId",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品类别 - 查询全部",
+			"javaClassName": "GoodsCategory_QueryAll_Api",
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品类别列表(全部)",
+						"example": "example",
+						"javaType": "java.util.List<GoodsCategory>",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品类别 - 查询详情",
+			"javaClassName": "GoodsCategory_QueryDetail_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品类别ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "categoryId",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品类别详情",
+						"example": "example",
+						"javaType": "GoodsCategory",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品类别 - 新增商品类别",
+			"javaClassName": "GoodsCategory_Add_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品类别名称",
+						"example": "example",
+						"javaType": "String",
+						"name": "name",
+						"required": true
+					},
+					{
+						"comment": "排序",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "reorder",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品类别 - 删除商品类别",
+			"javaClassName": "GoodsCategory_Delete_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品类别ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "categoryId",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品类别 - 更新商品类别",
+			"javaClassName": "GoodsCategory_Update_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品类别ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "categoryId",
+						"required": true
+					},
+					{
+						"comment": "商品类别名称",
+						"example": "example",
+						"javaType": "String",
+						"name": "name",
+						"required": true
+					},
+					{
+						"comment": "排序",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "reorder",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品 - 查询列表",
+			"javaClassName": "Goods_QueryList_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "页码(从0开始)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageIndex",
+						"required": true
+					},
+					{
+						"comment": "页大小",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageSize",
+						"required": true
+					},
+					{
+						"comment": "搜索 - 关键字",
+						"example": "example",
+						"javaType": "String",
+						"name": "searchKeyword",
+						"required": false
+					},
+					{
+						"comment": "搜索 - 商品类别ID(不传或传空字符串表示忽略此条件)",
+						"example": "example",
+						"javaType": "String",
+						"name": "searchCategoryId",
+						"required": false
+					},
+					{
+						"comment": "搜索 - 最小库存",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "searchMinStock",
+						"required": false
+					},
+					{
+						"comment": "搜索 - 最大库存",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "searchMaxStock",
+						"required": false
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品列表",
+						"example": "example",
+						"javaType": "java.util.List<Goods>",
+						"name": "data",
+						"required": true
+					},
+					{
+						"comment": "分页",
+						"example": "example",
+						"javaType": "com.github.microprograms.ignite_utils.sql.dml.PagerResponse",
+						"name": "pager",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品 - 查询详情",
+			"javaClassName": "Goods_QueryDetail_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "goodsId",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品详情",
+						"example": "example",
+						"javaType": "Goods",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品 - 添加新商品",
+			"javaClassName": "Goods_Add_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品分类ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "categoryId",
+						"required": true
+					},
+					{
+						"comment": "排序号(小的在前)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "reorder",
+						"required": true
+					},
+					{
+						"comment": "图片URL列表(JsonArray)",
+						"example": "example",
+						"javaType": "String",
+						"name": "pictureUrls",
+						"required": true
+					},
+					{
+						"comment": "商品名称",
+						"example": "example",
+						"javaType": "String",
+						"name": "name",
+						"required": true
+					},
+					{
+						"comment": "商品描述/属性",
+						"example": "example",
+						"javaType": "String",
+						"name": "desc",
+						"required": true
+					},
+					{
+						"comment": "商品价格(元)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "price",
+						"required": true
+					},
+					{
+						"comment": "商品价格(元) - 一级代理商",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "priceLevel1",
+						"required": true
+					},
+					{
+						"comment": "商品价格(元) - 二级代理商",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "priceLevel2",
+						"required": true
+					},
+					{
+						"comment": "商品价格(元) - 三级代理商",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "priceLevel3",
+						"required": true
+					},
+					{
+						"comment": "商品库存",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "stock",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品 - 下架",
+			"javaClassName": "Goods_SoldOut_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "goodsId",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品订单 - 查询列表",
+			"javaClassName": "MixOrder_QueryList_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "页码(从0开始)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageIndex",
+						"required": true
+					},
+					{
+						"comment": "页大小",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageSize",
+						"required": true
+					},
+					{
+						"comment": "搜索 - 关键字(订单号/商品名/商品编号)",
+						"example": "example",
+						"javaType": "String",
+						"name": "searchKeyword",
+						"required": false
+					},
+					{
+						"comment": "状态(0全部,1未处理,2已处理,3退款审核中,4已退款,5已拒绝退款)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "searchStatus",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品订单列表",
+						"example": "example",
+						"javaType": "java.util.List<MixOrder>",
+						"name": "data",
+						"required": true
+					},
+					{
+						"comment": "分页",
+						"example": "example",
+						"javaType": "com.github.microprograms.ignite_utils.sql.dml.PagerResponse",
+						"name": "pager",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品订单 - 查询详情",
+			"javaClassName": "MixOrder_QueryDetail_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品订单ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "orderId",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品订单详情",
+						"example": "example",
+						"javaType": "MixOrder",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "用户 - 查询列表",
+			"javaClassName": "User_QueryList_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "页码(从0开始)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageIndex",
+						"required": true
+					},
+					{
+						"comment": "页大小",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageSize",
+						"required": true
+					},
+					{
+						"comment": "搜索 - 关键字(用户登录名/手机号)",
+						"example": "example",
+						"javaType": "String",
+						"name": "searchKeyword",
+						"required": false
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "用户列表",
+						"example": "example",
+						"javaType": "java.util.List<User>",
+						"name": "data",
+						"required": true
+					},
+					{
+						"comment": "分页",
+						"example": "example",
+						"javaType": "com.github.microprograms.ignite_utils.sql.dml.PagerResponse",
+						"name": "pager",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "用户 - 查询详情",
+			"javaClassName": "User_QueryDetail_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "用户ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "userId",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "用户详情",
+						"example": "example",
+						"javaType": "User",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "用户 - 更新",
+			"javaClassName": "User_Update_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "用户ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "userId",
+						"primaryKey": 0,
+						"required": true
+					},
+					{
+						"comment": "等级(0普通用户,1一级代理,2二级代理,3三级代理)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "level",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "充值卡 - 查询列表",
+			"javaClassName": "RechargeCard_QueryList_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "页码(从0开始)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageIndex",
+						"required": true
+					},
+					{
+						"comment": "页大小",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageSize",
+						"required": true
+					},
+					{
+						"comment": "搜索 - 关键字(密码序列编码串)",
+						"example": "example",
+						"javaType": "String",
+						"name": "searchKeyword",
+						"required": false
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "充值卡列表",
+						"example": "example",
+						"javaType": "java.util.List<RechargeCard>",
+						"name": "data",
+						"required": true
+					},
+					{
+						"comment": "分页",
+						"example": "example",
+						"javaType": "com.github.microprograms.ignite_utils.sql.dml.PagerResponse",
+						"name": "pager",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "充值卡 - 查询详情",
+			"javaClassName": "RechargeCard_QueryDetail_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "充值卡ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "rechargeCardId",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "充值卡详情",
+						"example": "example",
+						"javaType": "RechargeCard",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "充值卡 - 单个添加",
+			"javaClassName": "RechargeCard_Add_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "原始密码序列编码串",
+						"example": "example",
+						"javaType": "String",
+						"name": "rawPasswordSeriesCode",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "充值卡 - 批量从文件添加",
+			"javaClassName": "RechargeCard_AddFromFile_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "文件地址",
+						"example": "example",
+						"javaType": "String",
+						"name": "fileUrl",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "充值卡 - 删除",
+			"javaClassName": "RechargeCard_Delete_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "充值卡ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "rechargeCardId",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		}
+	],
+	"comment": "yy-vip-center-manager-api",
+	"deployDefinition": {
+		"localMavenProjectHome": "/Users/xuzewei/microprograms/yy-vip-center-manager-api",
+		"localSshPassword": "xzw",
+		"localSshPort": 22,
+		"localSshUser": "xuzewei",
+		"remoteJavaApplicationHome": "/opt/microprograms/yy-vip-center-manager-api",
+		"remoteSshPassword": "Xuzewei2017",
+		"remoteSshPort": 22,
+		"remoteSshUser": "root"
+	},
+	"description": "小提示：利用浏览器搜索功能Ctrl+F可快速定位API接口。每个接口都已定义快速跳转书签，点击超链接即可跳转。",
+	"errorCodeDefinitions": [
+		{
+			"code": 1010,
+			"message": "Token已失效，请重新登录",
+			"name": "invalid_token"
+		},
+		{
+			"code": 1011,
+			"message": "没有字段需要更新，请填写需要更新的字段",
+			"name": "no_fields_need_to_be_updated"
+		},
+		{
+			"code": 1012,
+			"message": "账号和密码不匹配",
+			"name": "invalid_password"
+		},
+		{
+			"code": 1013,
+			"message": "手机号已被注册",
+			"name": "phone_already_registered"
+		},
+		{
+			"code": 1014,
+			"message": "验证码错误",
+			"name": "invalid_verification_code"
+		}
+	],
+	"javaPackageName": "com.github.microprograms.yy_vip_center_manager_api.public_api",
+	"mixinDefinitions": [
+		{
+			"source": "/Users/xuzewei/microprograms/yy-vip-center-core/design/model.json#entityDefinitions",
+			"target": "modelDefinitions"
+		}
+	],
+	"modelDefinitions": [
+		{
+			"comment": "从文件添加充值卡的结果",
+			"fieldDefinitions": [
+				{
+					"comment": "总数量",
+					"example": "example",
+					"javaType": "Integer",
+					"name": "totalAmount",
+					"required": true
+				},
+				{
+					"comment": "成功数量",
+					"example": "example",
+					"javaType": "Integer",
+					"name": "successAmount",
+					"required": false
+				},
+				{
+					"comment": "失败数量",
+					"example": "example",
+					"javaType": "Integer",
+					"name": "failAmount",
+					"required": false
+				},
+				{
+					"comment": "失败列表",
+					"example": "example",
+					"javaType": "java.util.List<String>",
+					"name": "failList",
+					"required": false
+				}
+			],
+			"javaClassName": "RechargeCardAddFromFileResult"
+		}
+	],
+	"serverAddressDefinition": {
+		"host": "47.104.17.187",
+		"port": 8084,
+		"url": "/yy-vip-center-manager-api"
+	},
+	"showdocDefinition": {
+		"apiKey": "c1f2592d6da604e4882526f617208deb679914518",
+		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
+		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
+	},
+	"version": "v0.0.1"
+}
