@@ -2,8 +2,10 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
 import com.github.microprograms.micro_api_runtime.annotation.MicroApiAnnotation;
-import com.github.microprograms.micro_api_runtime.exception.MicroApiExecuteException;
-import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
+import java.util.List;
+import com.github.microprograms.ignite_utils.sql.dml.Sort;
+import java.util.Arrays;
+import com.github.microprograms.ignite_utils.IgniteUtils;
 import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
@@ -12,9 +14,18 @@ import com.github.microprograms.micro_entity_definition_runtime.annotation.Requi
 @MicroApiAnnotation(type = "read", version = "v0.0.2")
 public class GoodsCategory_QueryAll_Api {
 
+    private static Object buildFinalCondition(Request req) {
+        return null;
+    }
+
+    private static List<Sort> buildSort(Request req) {
+        return Arrays.asList(Sort.desc("dtCreate"));
+    }
+
     private static void core(Request req, Resp resp) throws Exception {
-        Object doSomeThingHere;
-        throw new MicroApiExecuteException(MicroApiReserveResponseCodeEnum.api_not_implemented_exception);
+        Object finalCondition = buildFinalCondition(req);
+        List<Sort> sorts = buildSort(req);
+        resp.setData(IgniteUtils.queryAllObject(GoodsCategory.class, finalCondition, sorts));
     }
 
     public static Response execute(Request request) throws Exception {
