@@ -1,3 +1,4 @@
 {
+	"jdbc_driver": "org.apache.ignite.IgniteJdbcThinDriver",
 	"jdbc_url": "jdbc:ignite:thin://xzw1/public"
 }

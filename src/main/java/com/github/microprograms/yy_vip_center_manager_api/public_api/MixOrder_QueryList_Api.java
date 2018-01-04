@@ -2,13 +2,14 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
 import com.github.microprograms.micro_api_runtime.annotation.MicroApiAnnotation;
-import com.github.microprograms.ignite_utils.sql.dml.Where;
+import com.github.microprograms.micro_oss_core.model.dml.Where;
+import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import java.util.List;
-import com.github.microprograms.ignite_utils.sql.dml.Sort;
+import com.github.microprograms.micro_oss_core.model.dml.Sort;
 import java.util.Arrays;
-import com.github.microprograms.ignite_utils.sql.dml.PagerRequest;
-import com.github.microprograms.ignite_utils.sql.dml.PagerResponse;
-import com.github.microprograms.ignite_utils.IgniteUtils;
+import com.github.microprograms.micro_oss_core.model.dml.PagerRequest;
+import com.github.microprograms.micro_oss_core.model.dml.PagerResponse;
+import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
@@ -18,7 +19,7 @@ import com.github.microprograms.micro_entity_definition_runtime.annotation.Requi
 @MicroApiAnnotation(type = "read", version = "v0.0.2")
 public class MixOrder_QueryList_Api {
 
-    private static Object buildFinalCondition(Req req) {
+    private static Condition buildFinalCondition(Req req) {
         return Where.and(null);
     }
 
@@ -28,10 +29,10 @@ public class MixOrder_QueryList_Api {
 
     private static void core(Req req, Resp resp) throws Exception {
         PagerRequest pager = new PagerRequest(req.getPageIndex(), req.getPageSize());
-        Object finalCondition = buildFinalCondition(req);
+        Condition finalCondition = buildFinalCondition(req);
         List<Sort> sorts = buildSort(req);
-        resp.setData(IgniteUtils.queryAllObject(MixOrder.class, finalCondition, sorts, pager));
-        resp.setPager(new PagerResponse(pager, IgniteUtils.queryCount(MixOrder.class, finalCondition)));
+        resp.setData(MicroOss.queryAll(MixOrder.class, finalCondition, sorts, pager));
+        resp.setPager(new PagerResponse(pager, MicroOss.queryCount(MixOrder.class, finalCondition)));
     }
 
     public static Response execute(Request request) throws Exception {
@@ -124,13 +125,13 @@ public class MixOrder_QueryList_Api {
 
         @Comment(value = "分页")
         @Required(value = true)
-        private com.github.microprograms.ignite_utils.sql.dml.PagerResponse pager;
+        private com.github.microprograms.micro_oss_core.model.dml.PagerResponse pager;
 
-        public com.github.microprograms.ignite_utils.sql.dml.PagerResponse getPager() {
+        public com.github.microprograms.micro_oss_core.model.dml.PagerResponse getPager() {
             return pager;
         }
 
-        public void setPager(com.github.microprograms.ignite_utils.sql.dml.PagerResponse pager) {
+        public void setPager(com.github.microprograms.micro_oss_core.model.dml.PagerResponse pager) {
             this.pager = pager;
         }
     }

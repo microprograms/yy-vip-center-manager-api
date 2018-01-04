@@ -67,18 +67,13 @@
     <dependencies>
         <dependency>
             <groupId>com.github.microprograms</groupId>
+            <artifactId>micro-oss-ignite</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.microprograms</groupId>
             <artifactId>micro-relational-data-model-sdk</artifactId>
-            <version>1.0.2.r2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.ignite</groupId>
-            <artifactId>ignite-spring</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.ignite</groupId>
-            <artifactId>ignite-indexing</artifactId>
-            <version>2.3.0</version>
+            <version>1.0.2.r5</version>
         </dependency>
         <dependency>
             <groupId>com.typesafe</groupId>
@@ -88,12 +83,12 @@
         <dependency>
             <groupId>com.github.microprograms</groupId>
             <artifactId>yy-vip-center-core</artifactId>
-            <version>1.0.3</version>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.microprograms</groupId>
             <artifactId>micro-api-sdk</artifactId>
-            <version>1.1.1.r3</version>
+            <version>1.1.1.r4</version>
         </dependency>
         <dependency>
             <groupId>com.github.microprograms</groupId>

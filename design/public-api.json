@@ -447,7 +447,7 @@
 					{
 						"comment": "分页",
 						"example": "example",
-						"javaType": "com.github.microprograms.ignite_utils.sql.dml.PagerResponse",
+						"javaType": "com.github.microprograms.micro_oss_core.model.dml.PagerResponse",
 						"name": "pager",
 						"required": true
 					}
@@ -652,7 +652,7 @@
 					{
 						"comment": "分页",
 						"example": "example",
-						"javaType": "com.github.microprograms.ignite_utils.sql.dml.PagerResponse",
+						"javaType": "com.github.microprograms.micro_oss_core.model.dml.PagerResponse",
 						"name": "pager",
 						"required": true
 					}
@@ -742,7 +742,7 @@
 					{
 						"comment": "分页",
 						"example": "example",
-						"javaType": "com.github.microprograms.ignite_utils.sql.dml.PagerResponse",
+						"javaType": "com.github.microprograms.micro_oss_core.model.dml.PagerResponse",
 						"name": "pager",
 						"required": true
 					}
@@ -864,7 +864,7 @@
 					{
 						"comment": "分页",
 						"example": "example",
-						"javaType": "com.github.microprograms.ignite_utils.sql.dml.PagerResponse",
+						"javaType": "com.github.microprograms.micro_oss_core.model.dml.PagerResponse",
 						"name": "pager",
 						"required": true
 					}

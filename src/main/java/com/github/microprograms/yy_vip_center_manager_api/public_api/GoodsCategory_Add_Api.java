@@ -3,7 +3,7 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
 import com.github.microprograms.micro_api_runtime.annotation.MicroApiAnnotation;
 import com.github.microprograms.micro_api_runtime.model.Operator;
-import com.github.microprograms.ignite_utils.IgniteUtils;
+import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiExecuteException;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Commons;
@@ -31,7 +31,7 @@ public class GoodsCategory_Add_Api {
             throw new MicroApiExecuteException(MicroApiReserveResponseCodeEnum.unknown_operator_exception);
         if (operator.isPermissionDenied())
             throw new MicroApiExecuteException(MicroApiReserveResponseCodeEnum.permission_denied_exception);
-        IgniteUtils.insertObject(buildGoodsCategory(req));
+        MicroOss.insertObject(buildGoodsCategory(req));
     }
 
     public static Response execute(Request request) throws Exception {

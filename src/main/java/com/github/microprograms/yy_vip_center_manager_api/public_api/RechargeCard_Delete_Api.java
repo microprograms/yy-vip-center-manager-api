@@ -3,8 +3,8 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
 import com.github.microprograms.micro_api_runtime.annotation.MicroApiAnnotation;
 import com.github.microprograms.micro_api_runtime.model.Operator;
-import com.github.microprograms.ignite_utils.sql.dml.Condition;
-import com.github.microprograms.ignite_utils.IgniteUtils;
+import com.github.microprograms.micro_oss_core.model.dml.Condition;
+import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiExecuteException;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
 import com.github.microprograms.micro_api_runtime.model.Response;
@@ -20,7 +20,7 @@ public class RechargeCard_Delete_Api {
         return null;
     }
 
-    private static Object buildFinalCondition(Req req) {
+    private static Condition buildFinalCondition(Req req) {
         return Condition.build("id=", req.getRechargeCardId());
     }
 
@@ -30,8 +30,8 @@ public class RechargeCard_Delete_Api {
             throw new MicroApiExecuteException(MicroApiReserveResponseCodeEnum.unknown_operator_exception);
         if (operator.isPermissionDenied())
             throw new MicroApiExecuteException(MicroApiReserveResponseCodeEnum.permission_denied_exception);
-        Object finalCondition = buildFinalCondition(req);
-        IgniteUtils.deleteObject(RechargeCard.class, finalCondition);
+        Condition finalCondition = buildFinalCondition(req);
+        MicroOss.deleteObject(RechargeCard.class, finalCondition);
     }
 
     public static Response execute(Request request) throws Exception {

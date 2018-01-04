@@ -2,8 +2,8 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
 import com.github.microprograms.micro_api_runtime.annotation.MicroApiAnnotation;
-import com.github.microprograms.ignite_utils.sql.dml.Condition;
-import com.github.microprograms.ignite_utils.IgniteUtils;
+import com.github.microprograms.micro_oss_core.model.dml.Condition;
+import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
@@ -13,13 +13,13 @@ import com.github.microprograms.micro_entity_definition_runtime.annotation.Requi
 @MicroApiAnnotation(type = "read", version = "v0.0.2")
 public class MixOrder_QueryDetail_Api {
 
-    private static Object buildFinalCondition(Req req) {
+    private static Condition buildFinalCondition(Req req) {
         return Condition.build("id=", req.getOrderId());
     }
 
     private static void core(Req req, Resp resp) throws Exception {
-        Object finalCondition = buildFinalCondition(req);
-        resp.setData(IgniteUtils.queryObject(MixOrder.class, finalCondition));
+        Condition finalCondition = buildFinalCondition(req);
+        resp.setData(MicroOss.queryObject(MixOrder.class, finalCondition));
     }
 
     public static Response execute(Request request) throws Exception {

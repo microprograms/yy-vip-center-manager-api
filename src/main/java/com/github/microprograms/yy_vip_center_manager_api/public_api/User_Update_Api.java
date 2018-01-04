@@ -3,10 +3,10 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
 import com.github.microprograms.micro_api_runtime.annotation.MicroApiAnnotation;
 import com.github.microprograms.micro_api_runtime.model.Operator;
-import com.github.microprograms.ignite_utils.sql.dml.Condition;
-import com.github.microprograms.ignite_utils.sql.dml.FieldToUpdate;
+import com.github.microprograms.micro_oss_core.model.dml.Condition;
+import com.github.microprograms.micro_oss_core.model.Field;
 import java.util.List;
-import com.github.microprograms.ignite_utils.IgniteUtils;
+import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiExecuteException;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
 import com.github.microprograms.micro_api_runtime.model.Response;
@@ -22,11 +22,11 @@ public class User_Update_Api {
         return null;
     }
 
-    private static Object buildFinalCondition(Req req) {
+    private static Condition buildFinalCondition(Req req) {
         return Condition.build("id=", req.getUserId());
     }
 
-    private static List<FieldToUpdate> buildFieldsToUpdate(Req req) {
+    private static List<Field> buildFieldsToUpdate(Req req) {
         return null;
     }
 
@@ -36,9 +36,9 @@ public class User_Update_Api {
             throw new MicroApiExecuteException(MicroApiReserveResponseCodeEnum.unknown_operator_exception);
         if (operator.isPermissionDenied())
             throw new MicroApiExecuteException(MicroApiReserveResponseCodeEnum.permission_denied_exception);
-        Object finalCondition = buildFinalCondition(req);
-        List<FieldToUpdate> fields = buildFieldsToUpdate(req);
-        IgniteUtils.updateFieldsForObject(User.class, fields, finalCondition);
+        Condition finalCondition = buildFinalCondition(req);
+        List<Field> fields = buildFieldsToUpdate(req);
+        MicroOss.updateObject(User.class, fields, finalCondition);
     }
 
     public static Response execute(Request request) throws Exception {
