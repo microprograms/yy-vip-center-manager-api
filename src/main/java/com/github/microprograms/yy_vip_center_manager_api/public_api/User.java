@@ -1,15 +1,15 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
-import com.github.microprograms.micro_entity_definition_runtime.annotation.MicroEntityAnnotation;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
+import com.github.microprograms.micro_relational_data_model_runtime.MicroRelationalDataModel;
+import com.github.microprograms.micro_relational_data_model_runtime.Comment;
+import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroEntityAnnotation()
+@MicroRelationalDataModel(version = "v0.0.2")
 public class User {
 
     @Comment(value = "用户ID")
     @Required(value = true)
-    private String id;
+    private String id = "";
 
     public String getId() {
         return id;
@@ -21,7 +21,7 @@ public class User {
 
     @Comment(value = "Token")
     @Required(value = true)
-    private String token;
+    private String token = "";
 
     public String getToken() {
         return token;
@@ -33,7 +33,7 @@ public class User {
 
     @Comment(value = "登录名")
     @Required(value = true)
-    private String loginName;
+    private String loginName = "";
 
     public String getLoginName() {
         return loginName;
@@ -45,7 +45,7 @@ public class User {
 
     @Comment(value = "密码")
     @Required(value = true)
-    private String password;
+    private String password = "";
 
     public String getPassword() {
         return password;
@@ -57,7 +57,7 @@ public class User {
 
     @Comment(value = "手机号")
     @Required(value = true)
-    private String phone;
+    private String phone = "";
 
     public String getPhone() {
         return phone;
@@ -69,7 +69,7 @@ public class User {
 
     @Comment(value = "钱包 - 余额(元)")
     @Required(value = true)
-    private Integer walletAmount;
+    private Integer walletAmount = 0;
 
     public Integer getWalletAmount() {
         return walletAmount;
@@ -81,7 +81,7 @@ public class User {
 
     @Comment(value = "等级(0普通用户,1一级代理,2二级代理,3三级代理)")
     @Required(value = true)
-    private Integer level;
+    private Integer level = 0;
 
     public Integer getLevel() {
         return level;
@@ -93,7 +93,7 @@ public class User {
 
     @Comment(value = "注册时间")
     @Required(value = true)
-    private Long dtCreate;
+    private Long dtCreate = 0L;
 
     public Long getDtCreate() {
         return dtCreate;
@@ -105,7 +105,7 @@ public class User {
 
     @Comment(value = "上次修改时间")
     @Required(value = true)
-    private Long dtLastModify;
+    private Long dtLastModify = 0L;
 
     public Long getDtLastModify() {
         return dtLastModify;

@@ -9,6 +9,7 @@ import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AssignExpr;
+import com.github.javaparser.ast.expr.AssignExpr.Operator;
 import com.github.javaparser.ast.expr.ClassExpr;
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
@@ -17,16 +18,15 @@ import com.github.javaparser.ast.expr.NullLiteralExpr;
 import com.github.javaparser.ast.expr.ObjectCreationExpr;
 import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
-import com.github.javaparser.ast.expr.AssignExpr.Operator;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ReturnStmt;
 import com.github.javaparser.ast.stmt.Statement;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
+import com.github.microprograms.micro_api_sdk.MicroApiSdk;
+import com.github.microprograms.micro_api_sdk.callback.SmartCallback;
 import com.github.microprograms.micro_api_sdk.model.ApiDefinition;
 import com.github.microprograms.micro_api_sdk.model.EngineDefinition;
 import com.github.microprograms.micro_api_sdk.utils.ApiDocumentForShowdocUtils;
-import com.github.microprograms.micro_api_sdk.utils.ApiEngineGeneratorUtils;
-import com.github.microprograms.micro_api_sdk.utils.api_engine_generator_callback.SmartCallback;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Commons;
 
 public class ApiGenerator {
@@ -37,17 +37,17 @@ public class ApiGenerator {
 
     public static void publicApi() throws IOException {
         String srcFolder = "src/main/java";
-        ApiEngineGeneratorUtils.setCallback(new MyCallback());
-        EngineDefinition engineDefinition = ApiEngineGeneratorUtils.buildEngineDefinition("design/public-api.json");
-        ApiEngineGeneratorUtils.deleteModelJavaFiles(srcFolder, engineDefinition);
-        ApiEngineGeneratorUtils.createModelJavaFiles(srcFolder, engineDefinition);
-        ApiEngineGeneratorUtils.updateApiJavaFiles(srcFolder, engineDefinition);
-        ApiEngineGeneratorUtils.deleteUnusedApiJavaFiles(srcFolder, engineDefinition);
-        ApiEngineGeneratorUtils.updateErrorCodeJavaFile(srcFolder, engineDefinition);
+        MicroApiSdk.setCallback(new MyCallback());
+        EngineDefinition engineDefinition = MicroApiSdk.buildEngineDefinition("design/public-api.json");
+        MicroApiSdk.deletePlainEntityJavaSourceFiles(srcFolder, engineDefinition);
+        MicroApiSdk.updatePlainEntityJavaSourceFiles(srcFolder, engineDefinition);
+        MicroApiSdk.updateApiJavaSourceFiles(srcFolder, engineDefinition);
+        MicroApiSdk.deleteUnusedApiJavaSourceFiles(srcFolder, engineDefinition);
+        MicroApiSdk.updateErrorCodeJavaFile(srcFolder, engineDefinition);
     }
 
     public static void publicApiForShowdoc() throws IOException {
-        EngineDefinition engineDefinition = ApiEngineGeneratorUtils.buildEngineDefinition("design/public-api.json");
+        EngineDefinition engineDefinition = MicroApiSdk.buildEngineDefinition("design/public-api.json");
         ApiDocumentForShowdocUtils.update(engineDefinition);
     }
 

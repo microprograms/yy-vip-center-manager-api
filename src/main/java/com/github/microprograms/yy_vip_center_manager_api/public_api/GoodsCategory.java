@@ -1,15 +1,15 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
-import com.github.microprograms.micro_entity_definition_runtime.annotation.MicroEntityAnnotation;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
+import com.github.microprograms.micro_relational_data_model_runtime.MicroRelationalDataModel;
+import com.github.microprograms.micro_relational_data_model_runtime.Comment;
+import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroEntityAnnotation()
+@MicroRelationalDataModel(version = "v0.0.2")
 public class GoodsCategory {
 
     @Comment(value = "商品分类ID")
     @Required(value = true)
-    private String id;
+    private String id = "";
 
     public String getId() {
         return id;
@@ -21,7 +21,7 @@ public class GoodsCategory {
 
     @Comment(value = "名称")
     @Required(value = true)
-    private String name;
+    private String name = "";
 
     public String getName() {
         return name;
@@ -33,7 +33,7 @@ public class GoodsCategory {
 
     @Comment(value = "排序号(小的在前)")
     @Required(value = true)
-    private Integer reorder;
+    private Integer reorder = 0;
 
     public Integer getReorder() {
         return reorder;
@@ -45,7 +45,7 @@ public class GoodsCategory {
 
     @Comment(value = "创建时间")
     @Required(value = true)
-    private Long dtCreate;
+    private Long dtCreate = 0L;
 
     public Long getDtCreate() {
         return dtCreate;
@@ -57,7 +57,7 @@ public class GoodsCategory {
 
     @Comment(value = "创建人ID")
     @Required(value = true)
-    private String createrId;
+    private String createrId = "";
 
     public String getCreaterId() {
         return createrId;
@@ -69,7 +69,7 @@ public class GoodsCategory {
 
     @Comment(value = "创建人登录名")
     @Required(value = true)
-    private String createrLoginName;
+    private String createrLoginName = "";
 
     public String getCreaterLoginName() {
         return createrLoginName;
@@ -81,7 +81,7 @@ public class GoodsCategory {
 
     @Comment(value = "上次修改时间")
     @Required(value = true)
-    private Long dtLastModify;
+    private Long dtLastModify = 0L;
 
     public Long getDtLastModify() {
         return dtLastModify;

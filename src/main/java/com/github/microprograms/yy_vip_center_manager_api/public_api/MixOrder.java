@@ -1,15 +1,15 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
-import com.github.microprograms.micro_entity_definition_runtime.annotation.MicroEntityAnnotation;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
+import com.github.microprograms.micro_relational_data_model_runtime.MicroRelationalDataModel;
+import com.github.microprograms.micro_relational_data_model_runtime.Comment;
+import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroEntityAnnotation()
+@MicroRelationalDataModel(version = "v0.0.2")
 public class MixOrder {
 
     @Comment(value = "订单号")
     @Required(value = true)
-    private String id;
+    private String id = "";
 
     public String getId() {
         return id;
@@ -21,7 +21,7 @@ public class MixOrder {
 
     @Comment(value = "用户ID")
     @Required(value = true)
-    private String userId;
+    private String userId = "";
 
     public String getUserId() {
         return userId;
@@ -33,7 +33,7 @@ public class MixOrder {
 
     @Comment(value = "用户登录名")
     @Required(value = true)
-    private String userLoginName;
+    private String userLoginName = "";
 
     public String getUserLoginName() {
         return userLoginName;
@@ -45,7 +45,7 @@ public class MixOrder {
 
     @Comment(value = "订单总金额(元)")
     @Required(value = false)
-    private Integer orderAmount;
+    private Integer orderAmount = 0;
 
     public Integer getOrderAmount() {
         return orderAmount;
@@ -57,7 +57,7 @@ public class MixOrder {
 
     @Comment(value = "商品 - ID")
     @Required(value = false)
-    private String goodsId;
+    private String goodsId = "";
 
     public String getGoodsId() {
         return goodsId;
@@ -69,7 +69,7 @@ public class MixOrder {
 
     @Comment(value = "商品 - 名称")
     @Required(value = true)
-    private String goodsName;
+    private String goodsName = "";
 
     public String getGoodsName() {
         return goodsName;
@@ -81,7 +81,7 @@ public class MixOrder {
 
     @Comment(value = "商品 - 明细(JsonObject)")
     @Required(value = false)
-    private String goodsDetail;
+    private String goodsDetail = "";
 
     public String getGoodsDetail() {
         return goodsDetail;
@@ -93,7 +93,7 @@ public class MixOrder {
 
     @Comment(value = "订单备注(JsonObject)")
     @Required(value = false)
-    private String comment;
+    private String comment = "";
 
     public String getComment() {
         return comment;
@@ -105,7 +105,7 @@ public class MixOrder {
 
     @Comment(value = "提交时间")
     @Required(value = true)
-    private Long dtCreate;
+    private Long dtCreate = 0L;
 
     public Long getDtCreate() {
         return dtCreate;
@@ -117,7 +117,7 @@ public class MixOrder {
 
     @Comment(value = "是否已处理(0否1是)")
     @Required(value = true)
-    private Integer isDispose;
+    private Integer isDispose = 0;
 
     public Integer getIsDispose() {
         return isDispose;
@@ -129,7 +129,7 @@ public class MixOrder {
 
     @Comment(value = "处理时间")
     @Required(value = true)
-    private Long dtDispose;
+    private Long dtDispose = 0L;
 
     public Long getDtDispose() {
         return dtDispose;
@@ -141,7 +141,7 @@ public class MixOrder {
 
     @Comment(value = "处理人ID")
     @Required(value = true)
-    private String disposerId;
+    private String disposerId = "";
 
     public String getDisposerId() {
         return disposerId;
@@ -153,7 +153,7 @@ public class MixOrder {
 
     @Comment(value = "处理人登录名")
     @Required(value = true)
-    private String disposerLoginName;
+    private String disposerLoginName = "";
 
     public String getDisposerLoginName() {
         return disposerLoginName;
@@ -165,7 +165,7 @@ public class MixOrder {
 
     @Comment(value = "退货申请 - 备注")
     @Required(value = false)
-    private String refundRequestComment;
+    private String refundRequestComment = "";
 
     public String getRefundRequestComment() {
         return refundRequestComment;
@@ -177,7 +177,7 @@ public class MixOrder {
 
     @Comment(value = "退货申请 - 申请时间")
     @Required(value = true)
-    private Long dtRefundRequest;
+    private Long dtRefundRequest = 0L;
 
     public Long getDtRefundRequest() {
         return dtRefundRequest;
@@ -189,7 +189,7 @@ public class MixOrder {
 
     @Comment(value = "退货申请 - 审核时间")
     @Required(value = true)
-    private Long dtAuditRefundRequest;
+    private Long dtAuditRefundRequest = 0L;
 
     public Long getDtAuditRefundRequest() {
         return dtAuditRefundRequest;
@@ -201,7 +201,7 @@ public class MixOrder {
 
     @Comment(value = "退货申请 - 审核人ID")
     @Required(value = true)
-    private String refundRequestAuditorId;
+    private String refundRequestAuditorId = "";
 
     public String getRefundRequestAuditorId() {
         return refundRequestAuditorId;
@@ -213,7 +213,7 @@ public class MixOrder {
 
     @Comment(value = "退货申请 - 审核人登录名")
     @Required(value = true)
-    private String refundRequestAuditorLoginName;
+    private String refundRequestAuditorLoginName = "";
 
     public String getRefundRequestAuditorLoginName() {
         return refundRequestAuditorLoginName;
@@ -225,7 +225,7 @@ public class MixOrder {
 
     @Comment(value = "退货申请 - 状态(0未审核1已同意2已拒绝)")
     @Required(value = true)
-    private Integer refundRequestStatus;
+    private Integer refundRequestStatus = 0;
 
     public Integer getRefundRequestStatus() {
         return refundRequestStatus;
@@ -237,7 +237,7 @@ public class MixOrder {
 
     @Comment(value = "退货申请 - 拒绝原因")
     @Required(value = true)
-    private String refundRequestRejectReason;
+    private String refundRequestRejectReason = "";
 
     public String getRefundRequestRejectReason() {
         return refundRequestRejectReason;
@@ -249,7 +249,7 @@ public class MixOrder {
 
     @Comment(value = "上次修改时间")
     @Required(value = true)
-    private Long dtLastModify;
+    private Long dtLastModify = 0L;
 
     public Long getDtLastModify() {
         return dtLastModify;

@@ -1,15 +1,15 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
-import com.github.microprograms.micro_entity_definition_runtime.annotation.MicroEntityAnnotation;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
+import com.github.microprograms.micro_relational_data_model_runtime.MicroRelationalDataModel;
+import com.github.microprograms.micro_relational_data_model_runtime.Comment;
+import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroEntityAnnotation()
+@MicroRelationalDataModel(version = "v0.0.2")
 public class Goods {
 
     @Comment(value = "商品ID")
     @Required(value = true)
-    private String id;
+    private String id = "";
 
     public String getId() {
         return id;
@@ -21,7 +21,7 @@ public class Goods {
 
     @Comment(value = "商品分类ID")
     @Required(value = true)
-    private String categoryId;
+    private String categoryId = "";
 
     public String getCategoryId() {
         return categoryId;
@@ -33,7 +33,7 @@ public class Goods {
 
     @Comment(value = "商品分类名称")
     @Required(value = true)
-    private String categoryName;
+    private String categoryName = "";
 
     public String getCategoryName() {
         return categoryName;
@@ -45,7 +45,7 @@ public class Goods {
 
     @Comment(value = "排序号(小的在前)")
     @Required(value = true)
-    private Integer reorder;
+    private Integer reorder = 0;
 
     public Integer getReorder() {
         return reorder;
@@ -57,7 +57,7 @@ public class Goods {
 
     @Comment(value = "图片URL列表(JsonArray)")
     @Required(value = true)
-    private String pictureUrls;
+    private String pictureUrls = "";
 
     public String getPictureUrls() {
         return pictureUrls;
@@ -69,7 +69,7 @@ public class Goods {
 
     @Comment(value = "商品名称")
     @Required(value = true)
-    private String name;
+    private String name = "";
 
     public String getName() {
         return name;
@@ -81,7 +81,7 @@ public class Goods {
 
     @Comment(value = "商品描述/属性")
     @Required(value = true)
-    private String desc;
+    private String desc = "";
 
     public String getDesc() {
         return desc;
@@ -93,7 +93,7 @@ public class Goods {
 
     @Comment(value = "商品价格(元)")
     @Required(value = true)
-    private Integer price;
+    private Integer price = 0;
 
     public Integer getPrice() {
         return price;
@@ -105,7 +105,7 @@ public class Goods {
 
     @Comment(value = "商品价格(元) - 一级代理商")
     @Required(value = true)
-    private Integer priceLevel1;
+    private Integer priceLevel1 = 0;
 
     public Integer getPriceLevel1() {
         return priceLevel1;
@@ -117,7 +117,7 @@ public class Goods {
 
     @Comment(value = "商品价格(元) - 二级代理商")
     @Required(value = true)
-    private Integer priceLevel2;
+    private Integer priceLevel2 = 0;
 
     public Integer getPriceLevel2() {
         return priceLevel2;
@@ -129,7 +129,7 @@ public class Goods {
 
     @Comment(value = "商品价格(元) - 三级代理商")
     @Required(value = true)
-    private Integer priceLevel3;
+    private Integer priceLevel3 = 0;
 
     public Integer getPriceLevel3() {
         return priceLevel3;
@@ -141,7 +141,7 @@ public class Goods {
 
     @Comment(value = "商品库存")
     @Required(value = true)
-    private Integer stock;
+    private Integer stock = 0;
 
     public Integer getStock() {
         return stock;
@@ -153,7 +153,7 @@ public class Goods {
 
     @Comment(value = "创建时间")
     @Required(value = true)
-    private Long dtCreate;
+    private Long dtCreate = 0L;
 
     public Long getDtCreate() {
         return dtCreate;
@@ -165,7 +165,7 @@ public class Goods {
 
     @Comment(value = "创建人ID")
     @Required(value = true)
-    private String createrId;
+    private String createrId = "";
 
     public String getCreaterId() {
         return createrId;
@@ -177,7 +177,7 @@ public class Goods {
 
     @Comment(value = "创建人登录名")
     @Required(value = true)
-    private String createrLoginName;
+    private String createrLoginName = "";
 
     public String getCreaterLoginName() {
         return createrLoginName;
@@ -189,7 +189,7 @@ public class Goods {
 
     @Comment(value = "是否下架(0否1是)")
     @Required(value = true)
-    private Integer isSoldOut;
+    private Integer isSoldOut = 0;
 
     public Integer getIsSoldOut() {
         return isSoldOut;
@@ -201,7 +201,7 @@ public class Goods {
 
     @Comment(value = "下架时间")
     @Required(value = true)
-    private Long dtSoldOut;
+    private Long dtSoldOut = 0L;
 
     public Long getDtSoldOut() {
         return dtSoldOut;
@@ -213,7 +213,7 @@ public class Goods {
 
     @Comment(value = "下架人ID")
     @Required(value = true)
-    private String soldOutOperatorId;
+    private String soldOutOperatorId = "";
 
     public String getSoldOutOperatorId() {
         return soldOutOperatorId;
@@ -225,7 +225,7 @@ public class Goods {
 
     @Comment(value = "下架人登录名")
     @Required(value = true)
-    private String soldOutOperatorLoginName;
+    private String soldOutOperatorLoginName = "";
 
     public String getSoldOutOperatorLoginName() {
         return soldOutOperatorLoginName;
@@ -237,7 +237,7 @@ public class Goods {
 
     @Comment(value = "上次修改时间")
     @Required(value = true)
-    private Long dtLastModify;
+    private Long dtLastModify = 0L;
 
     public Long getDtLastModify() {
         return dtLastModify;

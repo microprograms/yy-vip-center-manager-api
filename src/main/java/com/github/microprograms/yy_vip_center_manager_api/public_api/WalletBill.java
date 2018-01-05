@@ -1,15 +1,15 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
-import com.github.microprograms.micro_entity_definition_runtime.annotation.MicroEntityAnnotation;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
+import com.github.microprograms.micro_relational_data_model_runtime.MicroRelationalDataModel;
+import com.github.microprograms.micro_relational_data_model_runtime.Comment;
+import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroEntityAnnotation()
+@MicroRelationalDataModel(version = "v0.0.2")
 public class WalletBill {
 
     @Comment(value = "ID")
     @Required(value = true)
-    private String id;
+    private String id = "";
 
     public String getId() {
         return id;
@@ -21,7 +21,7 @@ public class WalletBill {
 
     @Comment(value = "用户ID")
     @Required(value = true)
-    private String userId;
+    private String userId = "";
 
     public String getUserId() {
         return userId;
@@ -33,7 +33,7 @@ public class WalletBill {
 
     @Comment(value = "用户登录名")
     @Required(value = true)
-    private String userLoginName;
+    private String userLoginName = "";
 
     public String getUserLoginName() {
         return userLoginName;
@@ -45,7 +45,7 @@ public class WalletBill {
 
     @Comment(value = "类型(1入账,2消费)")
     @Required(value = true)
-    private Integer type;
+    private Integer type = 0;
 
     public Integer getType() {
         return type;
@@ -57,7 +57,7 @@ public class WalletBill {
 
     @Comment(value = "创建时间")
     @Required(value = true)
-    private Long dtCreate;
+    private Long dtCreate = 0L;
 
     public Long getDtCreate() {
         return dtCreate;
@@ -69,7 +69,7 @@ public class WalletBill {
 
     @Comment(value = "金额(元)")
     @Required(value = true)
-    private Integer amount;
+    private Integer amount = 0;
 
     public Integer getAmount() {
         return amount;
@@ -81,7 +81,7 @@ public class WalletBill {
 
     @Comment(value = "钱包 - 旧余额(元)")
     @Required(value = true)
-    private Integer oldWalletAmount;
+    private Integer oldWalletAmount = 0;
 
     public Integer getOldWalletAmount() {
         return oldWalletAmount;
@@ -93,7 +93,7 @@ public class WalletBill {
 
     @Comment(value = "钱包 - 新余额(元)")
     @Required(value = true)
-    private Integer newWalletAmount;
+    private Integer newWalletAmount = 0;
 
     public Integer getNewWalletAmount() {
         return newWalletAmount;
@@ -105,7 +105,7 @@ public class WalletBill {
 
     @Comment(value = "入账 - 充值卡ID")
     @Required(value = true)
-    private String inRechargeCardId;
+    private String inRechargeCardId = "";
 
     public String getInRechargeCardId() {
         return inRechargeCardId;
@@ -117,7 +117,7 @@ public class WalletBill {
 
     @Comment(value = "入账 - 充值卡面额")
     @Required(value = true)
-    private String inRechargeCardAmount;
+    private String inRechargeCardAmount = "";
 
     public String getInRechargeCardAmount() {
         return inRechargeCardAmount;
@@ -129,7 +129,7 @@ public class WalletBill {
 
     @Comment(value = "入账 - 充值卡原始密码序列编码串")
     @Required(value = true)
-    private String inRechargeCardRawPasswordSeriesCode;
+    private String inRechargeCardRawPasswordSeriesCode = "";
 
     public String getInRechargeCardRawPasswordSeriesCode() {
         return inRechargeCardRawPasswordSeriesCode;
@@ -141,7 +141,7 @@ public class WalletBill {
 
     @Comment(value = "消费 - 订单ID")
     @Required(value = true)
-    private String outOrderId;
+    private String outOrderId = "";
 
     public String getOutOrderId() {
         return outOrderId;
@@ -153,7 +153,7 @@ public class WalletBill {
 
     @Comment(value = "消费 - 订单商品ID")
     @Required(value = true)
-    private String outOrderGoodsId;
+    private String outOrderGoodsId = "";
 
     public String getOutOrderGoodsId() {
         return outOrderGoodsId;
@@ -165,7 +165,7 @@ public class WalletBill {
 
     @Comment(value = "消费 - 订单商品名字")
     @Required(value = true)
-    private String outOrderGoodsName;
+    private String outOrderGoodsName = "";
 
     public String getOutOrderGoodsName() {
         return outOrderGoodsName;
@@ -177,7 +177,7 @@ public class WalletBill {
 
     @Comment(value = "上次修改时间")
     @Required(value = true)
-    private Long dtLastModify;
+    private Long dtLastModify = 0L;
 
     public Long getDtLastModify() {
         return dtLastModify;

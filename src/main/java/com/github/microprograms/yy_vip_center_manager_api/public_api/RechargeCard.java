@@ -1,15 +1,15 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
-import com.github.microprograms.micro_entity_definition_runtime.annotation.MicroEntityAnnotation;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
+import com.github.microprograms.micro_relational_data_model_runtime.MicroRelationalDataModel;
+import com.github.microprograms.micro_relational_data_model_runtime.Comment;
+import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroEntityAnnotation()
+@MicroRelationalDataModel(version = "v0.0.2")
 public class RechargeCard {
 
     @Comment(value = "ID")
     @Required(value = true)
-    private String id;
+    private String id = "";
 
     public String getId() {
         return id;
@@ -21,7 +21,7 @@ public class RechargeCard {
 
     @Comment(value = "面额(元)")
     @Required(value = true)
-    private Integer amount;
+    private Integer amount = 0;
 
     public Integer getAmount() {
         return amount;
@@ -33,7 +33,7 @@ public class RechargeCard {
 
     @Comment(value = "原始密码序列编码串")
     @Required(value = true)
-    private String rawPasswordSeriesCode;
+    private String rawPasswordSeriesCode = "";
 
     public String getRawPasswordSeriesCode() {
         return rawPasswordSeriesCode;
@@ -45,7 +45,7 @@ public class RechargeCard {
 
     @Comment(value = "入库时间")
     @Required(value = true)
-    private Long dtCreate;
+    private Long dtCreate = 0L;
 
     public Long getDtCreate() {
         return dtCreate;
@@ -57,7 +57,7 @@ public class RechargeCard {
 
     @Comment(value = "入库人ID")
     @Required(value = true)
-    private String createrId;
+    private String createrId = "";
 
     public String getCreaterId() {
         return createrId;
@@ -69,7 +69,7 @@ public class RechargeCard {
 
     @Comment(value = "入库人登录名")
     @Required(value = true)
-    private String createrLoginName;
+    private String createrLoginName = "";
 
     public String getCreaterLoginName() {
         return createrLoginName;
@@ -81,7 +81,7 @@ public class RechargeCard {
 
     @Comment(value = "使用时间")
     @Required(value = true)
-    private Long dtUse;
+    private Long dtUse = 0L;
 
     public Long getDtUse() {
         return dtUse;
@@ -93,7 +93,7 @@ public class RechargeCard {
 
     @Comment(value = "使用人ID")
     @Required(value = true)
-    private String userId;
+    private String userId = "";
 
     public String getUserId() {
         return userId;
@@ -105,7 +105,7 @@ public class RechargeCard {
 
     @Comment(value = "使用人登录名")
     @Required(value = true)
-    private String userLoginName;
+    private String userLoginName = "";
 
     public String getUserLoginName() {
         return userLoginName;
@@ -117,7 +117,7 @@ public class RechargeCard {
 
     @Comment(value = "上次修改时间")
     @Required(value = true)
-    private Long dtLastModify;
+    private Long dtLastModify = 0L;
 
     public Long getDtLastModify() {
         return dtLastModify;

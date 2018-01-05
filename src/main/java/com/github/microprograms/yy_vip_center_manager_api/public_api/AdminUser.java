@@ -1,15 +1,15 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
-import com.github.microprograms.micro_entity_definition_runtime.annotation.MicroEntityAnnotation;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Comment;
-import com.github.microprograms.micro_entity_definition_runtime.annotation.Required;
+import com.github.microprograms.micro_relational_data_model_runtime.MicroRelationalDataModel;
+import com.github.microprograms.micro_relational_data_model_runtime.Comment;
+import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroEntityAnnotation()
+@MicroRelationalDataModel(version = "v0.0.2")
 public class AdminUser {
 
     @Comment(value = "ID")
     @Required(value = true)
-    private String id;
+    private String id = "";
 
     public String getId() {
         return id;
@@ -21,7 +21,7 @@ public class AdminUser {
 
     @Comment(value = "Token")
     @Required(value = true)
-    private String token;
+    private String token = "";
 
     public String getToken() {
         return token;
@@ -33,7 +33,7 @@ public class AdminUser {
 
     @Comment(value = "登录名")
     @Required(value = true)
-    private String loginName;
+    private String loginName = "";
 
     public String getLoginName() {
         return loginName;
@@ -45,7 +45,7 @@ public class AdminUser {
 
     @Comment(value = "登录密码")
     @Required(value = true)
-    private String loginPassword;
+    private String loginPassword = "";
 
     public String getLoginPassword() {
         return loginPassword;
@@ -57,7 +57,7 @@ public class AdminUser {
 
     @Comment(value = "创建时间")
     @Required(value = true)
-    private Long dtCreate;
+    private Long dtCreate = 0L;
 
     public Long getDtCreate() {
         return dtCreate;
@@ -69,7 +69,7 @@ public class AdminUser {
 
     @Comment(value = "创建人ID")
     @Required(value = true)
-    private String createrId;
+    private String createrId = "";
 
     public String getCreaterId() {
         return createrId;
@@ -81,7 +81,7 @@ public class AdminUser {
 
     @Comment(value = "创建人登录名")
     @Required(value = true)
-    private String createrLoginName;
+    private String createrLoginName = "";
 
     public String getCreaterLoginName() {
         return createrLoginName;
@@ -93,7 +93,7 @@ public class AdminUser {
 
     @Comment(value = "上次修改时间")
     @Required(value = true)
-    private Long dtLastModify;
+    private Long dtLastModify = 0L;
 
     public Long getDtLastModify() {
         return dtLastModify;
