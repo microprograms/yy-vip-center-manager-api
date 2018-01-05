@@ -27,7 +27,7 @@ import com.github.microprograms.micro_api_sdk.callback.SmartCallback;
 import com.github.microprograms.micro_api_sdk.model.ApiDefinition;
 import com.github.microprograms.micro_api_sdk.model.EngineDefinition;
 import com.github.microprograms.micro_api_sdk.utils.ApiDocumentForShowdocUtils;
-import com.github.microprograms.yy_vip_center_manager_api.utils.Commons;
+import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
 public class ApiGenerator {
     public static void main(String[] args) throws IOException {
@@ -63,9 +63,9 @@ public class ApiGenerator {
                 ReturnStmt returnStmt = (ReturnStmt) getOperatorMethodBodyStatement;
                 Expression expression = returnStmt.getExpression().get();
                 if (expression instanceof NullLiteralExpr) {
-                    cu.addImport(Commons.class);
+                    cu.addImport(Fn.class);
                     getOperatorMethodBodyStatement.remove();
-                    getOperatorMethodBody.addStatement(new ReturnStmt(new MethodCallExpr(new NameExpr(Commons.class.getSimpleName()), new SimpleName("buildOperator"), NodeList.nodeList(new ClassExpr(new ClassOrInterfaceType(apiDefinition.getJavaClassName())), new MethodCallExpr(new NameExpr("req"), "getToken")))));
+                    getOperatorMethodBody.addStatement(new ReturnStmt(new MethodCallExpr(new NameExpr(Fn.class.getSimpleName()), new SimpleName("buildOperator"), NodeList.nodeList(new ClassExpr(new ClassOrInterfaceType(apiDefinition.getJavaClassName())), new MethodCallExpr(new NameExpr("req"), "getToken")))));
                     getOperatorMethodDeclaration.addThrownException(Exception.class);
                 }
             }

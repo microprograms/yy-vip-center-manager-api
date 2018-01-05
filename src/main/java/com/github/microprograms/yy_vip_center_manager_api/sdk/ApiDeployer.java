@@ -10,5 +10,7 @@ public class ApiDeployer {
         ApiDeployUtils.stop(engineDefinition);
         ApiDeployUtils.deploy(engineDefinition);
         ApiDeployUtils.start(engineDefinition);
+        Thread.sleep(2 * 1000);
+        ApiDeployUtils.showLatestServerOut(engineDefinition);
     }
 }

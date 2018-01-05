@@ -5,7 +5,7 @@ import com.github.microprograms.micro_api_runtime.model.Operator;
 import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
-import com.github.microprograms.yy_vip_center_manager_api.utils.Commons;
+import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
@@ -16,7 +16,7 @@ import com.github.microprograms.micro_nested_data_model_runtime.Required;
 public class GoodsCategory_Add_Api {
 
     private static Operator<?> getOperator(Req req) throws Exception {
-        return Commons.buildOperator(GoodsCategory_Add_Api.class, req.getToken());
+        return Fn.buildOperator(GoodsCategory_Add_Api.class, req.getToken());
     }
 
     private static GoodsCategory buildGoodsCategory(Req req) {
