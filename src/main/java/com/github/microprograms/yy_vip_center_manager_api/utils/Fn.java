@@ -22,6 +22,9 @@ public class Fn {
 
     public static Operator<AdminUser> buildOperator(Class<?> apiClass, String token) throws MicroOssException {
         AdminUser adminUser = queryAdminUserByToken(token);
+        if (adminUser == null) {
+            return null;
+        }
         return new Operator<AdminUser>(adminUser.getId(), adminUser.getLoginName(), false, adminUser);
     }
 
