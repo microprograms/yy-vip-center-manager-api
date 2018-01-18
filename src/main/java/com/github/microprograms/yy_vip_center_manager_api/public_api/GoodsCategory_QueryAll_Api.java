@@ -19,7 +19,7 @@ public class GoodsCategory_QueryAll_Api {
     }
 
     private static List<Sort> buildSort(Request req) {
-        return Arrays.asList(Sort.desc("dtCreate"));
+        return Arrays.asList(Sort.asc("reorder"), Sort.desc("dtCreate"));
     }
 
     private static void core(Request req, Resp resp) throws Exception {
