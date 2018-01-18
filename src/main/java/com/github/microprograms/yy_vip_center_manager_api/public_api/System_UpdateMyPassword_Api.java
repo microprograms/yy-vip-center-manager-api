@@ -2,7 +2,6 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
 import com.github.microprograms.micro_api_runtime.model.Request;
@@ -15,7 +14,7 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "系统 - 修改我的密码", type = "read", version = "v0.0.3")
+@MicroApi(comment = "系统 - 修改我的密码", type = "read", version = "v0.0.4")
 public class System_UpdateMyPassword_Api {
 
     private static void core(Req req, Response resp) throws Exception {

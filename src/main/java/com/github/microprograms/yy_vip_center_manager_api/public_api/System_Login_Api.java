@@ -11,7 +11,7 @@ import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.micro_oss_core.model.dml.Where;
 
-@MicroApi(comment = "系统 - 登录", type = "read", version = "v0.0.3")
+@MicroApi(comment = "系统 - 登录", type = "read", version = "v0.0.4")
 public class System_Login_Api {
 
     private static void core(Req req, Resp resp) throws Exception {

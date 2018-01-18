@@ -14,7 +14,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "商品类别 - 更新商品类别", type = "read", version = "v0.0.3")
+@MicroApi(comment = "商品类别 - 更新商品类别", type = "read", version = "v0.0.4")
 public class GoodsCategory_Update_Api {
 
     private static Operator<?> getOperator(Req req) {
@@ -44,8 +44,6 @@ public class GoodsCategory_Update_Api {
         Req req = (Req) request;
         MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
         MicroApiUtils.throwExceptionIfBlank(req.getCategoryId(), "categoryId");
-        MicroApiUtils.throwExceptionIfBlank(req.getName(), "name");
-        MicroApiUtils.throwExceptionIfBlank(req.getReorder(), "reorder");
         Response resp = new Response();
         core(req, resp);
         return resp;
@@ -78,7 +76,7 @@ public class GoodsCategory_Update_Api {
         }
 
         @Comment(value = "商品类别名称")
-        @Required(value = true)
+        @Required(value = false)
         private String name;
 
         public String getName() {
@@ -90,7 +88,7 @@ public class GoodsCategory_Update_Api {
         }
 
         @Comment(value = "排序")
-        @Required(value = true)
+        @Required(value = false)
         private Integer reorder;
 
         public Integer getReorder() {

@@ -366,14 +366,14 @@
 						"example": "example",
 						"javaType": "String",
 						"name": "name",
-						"required": true
+						"required": false
 					},
 					{
 						"comment": "排序",
 						"example": "example",
 						"javaType": "Integer",
 						"name": "reorder",
-						"required": true
+						"required": false
 					}
 				]
 			},
@@ -1214,5 +1214,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.3"
+	"version": "v0.0.4"
 }

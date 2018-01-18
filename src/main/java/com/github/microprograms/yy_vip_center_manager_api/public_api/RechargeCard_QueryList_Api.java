@@ -15,7 +15,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "充值卡 - 查询列表", type = "read", version = "v0.0.3")
+@MicroApi(comment = "充值卡 - 查询列表", type = "read", version = "v0.0.4")
 public class RechargeCard_QueryList_Api {
 
     private static Condition buildFinalCondition(Req req) {

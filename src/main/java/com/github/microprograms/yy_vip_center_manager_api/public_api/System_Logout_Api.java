@@ -15,7 +15,7 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "系统 - 退出", type = "read", version = "v0.0.3")
+@MicroApi(comment = "系统 - 退出", type = "read", version = "v0.0.4")
 public class System_Logout_Api {
 
     private static void core(Req req, Response resp) throws Exception {
@@ -38,7 +38,9 @@ public class System_Logout_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token") @Required(value = true) private String token;
+        @Comment(value = "Token")
+        @Required(value = true)
+        private String token;
 
         public String getToken() {
             return token;
