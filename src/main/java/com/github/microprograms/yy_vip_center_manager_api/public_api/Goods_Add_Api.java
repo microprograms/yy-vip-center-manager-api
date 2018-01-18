@@ -12,7 +12,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "商品 - 添加新商品", type = "read", version = "v0.0.2")
+@MicroApi(comment = "商品 - 添加新商品", type = "read", version = "v0.0.3")
 public class Goods_Add_Api {
 
     private static Operator<?> getOperator(Req req) throws Exception {
@@ -125,7 +125,7 @@ public class Goods_Add_Api {
             this.desc = desc;
         }
 
-        @Comment(value = "商品价格(元)")
+        @Comment(value = "商品价格(分)")
         @Required(value = true)
         private Integer price;
 
@@ -137,7 +137,7 @@ public class Goods_Add_Api {
             this.price = price;
         }
 
-        @Comment(value = "商品价格(元) - 一级代理商")
+        @Comment(value = "商品价格(分) - 一级代理商")
         @Required(value = true)
         private Integer priceLevel1;
 
@@ -149,7 +149,7 @@ public class Goods_Add_Api {
             this.priceLevel1 = priceLevel1;
         }
 
-        @Comment(value = "商品价格(元) - 二级代理商")
+        @Comment(value = "商品价格(分) - 二级代理商")
         @Required(value = true)
         private Integer priceLevel2;
 
@@ -161,7 +161,7 @@ public class Goods_Add_Api {
             this.priceLevel2 = priceLevel2;
         }
 
-        @Comment(value = "商品价格(元) - 三级代理商")
+        @Comment(value = "商品价格(分) - 三级代理商")
         @Required(value = true)
         private Integer priceLevel3;
 

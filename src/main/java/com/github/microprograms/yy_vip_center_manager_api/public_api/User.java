@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.2")
+@MicroRelationalDataModel(version = "v0.0.3")
 public class User {
 
     @Comment(value = "用户ID")
@@ -31,30 +31,6 @@ public class User {
         this.token = token;
     }
 
-    @Comment(value = "登录名")
-    @Required(value = true)
-    private String loginName = "";
-
-    public String getLoginName() {
-        return loginName;
-    }
-
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
-
-    @Comment(value = "密码")
-    @Required(value = true)
-    private String password = "";
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Comment(value = "手机号")
     @Required(value = true)
     private String phone = "";
@@ -67,7 +43,19 @@ public class User {
         this.phone = phone;
     }
 
-    @Comment(value = "钱包 - 余额(元)")
+    @Comment(value = "昵称")
+    @Required(value = true)
+    private String nickname = "";
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    @Comment(value = "钱包 - 余额(分)")
     @Required(value = true)
     private Integer walletAmount = 0;
 

@@ -2,19 +2,24 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
-import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
-import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.model.Request;
+import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
+import com.github.microprograms.micro_oss_core.MicroOss;
+import com.github.microprograms.micro_oss_core.model.dml.Condition;
+import com.github.microprograms.micro_oss_core.model.dml.Where;
 
-@MicroApi(comment = "系统 - 登录", type = "read", version = "v0.0.2")
+@MicroApi(comment = "系统 - 登录", type = "read", version = "v0.0.3")
 public class System_Login_Api {
 
     private static void core(Req req, Resp resp) throws Exception {
-        Object doSomeThingHere;
-        throw new MicroApiPassthroughException(MicroApiReserveResponseCodeEnum.api_not_implemented_exception);
+        AdminUser adminUser = MicroOss.queryObject(AdminUser.class, Where.and(Condition.build("loginName=", req.getLoginName()), Condition.build("loginPassword=", req.getLoginPassword())));
+        if (adminUser == null) {
+            throw new MicroApiPassthroughException(ErrorCodeEnum.invalid_password);
+        }
+        resp.setData(adminUser);
     }
 
     public static Response execute(Request request) throws Exception {

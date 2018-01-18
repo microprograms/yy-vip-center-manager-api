@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.2")
+@MicroRelationalDataModel(version = "v0.0.3")
 public class GoodsBuyLimit {
 
     @Comment(value = "ID")
@@ -55,16 +55,16 @@ public class GoodsBuyLimit {
         this.userId = userId;
     }
 
-    @Comment(value = "用户登录名")
+    @Comment(value = "用户昵称")
     @Required(value = true)
-    private String userLoginName = "";
+    private String userNickname = "";
 
-    public String getUserLoginName() {
-        return userLoginName;
+    public String getUserNickname() {
+        return userNickname;
     }
 
-    public void setUserLoginName(String userLoginName) {
-        this.userLoginName = userLoginName;
+    public void setUserNickname(String userNickname) {
+        this.userNickname = userNickname;
     }
 
     @Comment(value = "限购数量")

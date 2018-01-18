@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.2")
+@MicroRelationalDataModel(version = "v0.0.3")
 public class WalletBill {
 
     @Comment(value = "ID")
@@ -31,16 +31,16 @@ public class WalletBill {
         this.userId = userId;
     }
 
-    @Comment(value = "用户登录名")
+    @Comment(value = "昵称")
     @Required(value = true)
-    private String userLoginName = "";
+    private String userNickname = "";
 
-    public String getUserLoginName() {
-        return userLoginName;
+    public String getUserNickname() {
+        return userNickname;
     }
 
-    public void setUserLoginName(String userLoginName) {
-        this.userLoginName = userLoginName;
+    public void setUserNickname(String userNickname) {
+        this.userNickname = userNickname;
     }
 
     @Comment(value = "类型(1入账,2消费)")
@@ -67,7 +67,7 @@ public class WalletBill {
         this.dtCreate = dtCreate;
     }
 
-    @Comment(value = "金额(元)")
+    @Comment(value = "金额(分)")
     @Required(value = true)
     private Integer amount = 0;
 
@@ -79,7 +79,7 @@ public class WalletBill {
         this.amount = amount;
     }
 
-    @Comment(value = "钱包 - 旧余额(元)")
+    @Comment(value = "钱包 - 旧余额(分)")
     @Required(value = true)
     private Integer oldWalletAmount = 0;
 
@@ -91,7 +91,7 @@ public class WalletBill {
         this.oldWalletAmount = oldWalletAmount;
     }
 
-    @Comment(value = "钱包 - 新余额(元)")
+    @Comment(value = "钱包 - 新余额(分)")
     @Required(value = true)
     private Integer newWalletAmount = 0;
 

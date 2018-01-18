@@ -15,7 +15,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "用户 - 查询列表", type = "read", version = "v0.0.2")
+@MicroApi(comment = "用户 - 查询列表", type = "read", version = "v0.0.3")
 public class User_QueryList_Api {
 
     private static Condition buildFinalCondition(Req req) {
@@ -82,7 +82,7 @@ public class User_QueryList_Api {
             this.pageSize = pageSize;
         }
 
-        @Comment(value = "搜索 - 关键字(用户登录名/手机号)")
+        @Comment(value = "搜索 - 关键字(用户昵称/手机号)")
         @Required(value = false)
         private String searchKeyword;
 

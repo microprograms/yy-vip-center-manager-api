@@ -9,7 +9,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "商品 - 下架", type = "read", version = "v0.0.2")
+@MicroApi(comment = "商品 - 下架", type = "read", version = "v0.0.3")
 public class Goods_SoldOut_Api {
 
     private static void core(Req req, Response resp) throws Exception {

@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.2")
+@MicroRelationalDataModel(version = "v0.0.3")
 public class Goods {
 
     @Comment(value = "商品ID")
@@ -91,7 +91,7 @@ public class Goods {
         this.desc = desc;
     }
 
-    @Comment(value = "商品价格(元)")
+    @Comment(value = "商品价格(分)")
     @Required(value = true)
     private Integer price = 0;
 
@@ -103,7 +103,7 @@ public class Goods {
         this.price = price;
     }
 
-    @Comment(value = "商品价格(元) - 一级代理商")
+    @Comment(value = "商品价格(分) - 一级代理商")
     @Required(value = true)
     private Integer priceLevel1 = 0;
 
@@ -115,7 +115,7 @@ public class Goods {
         this.priceLevel1 = priceLevel1;
     }
 
-    @Comment(value = "商品价格(元) - 二级代理商")
+    @Comment(value = "商品价格(分) - 二级代理商")
     @Required(value = true)
     private Integer priceLevel2 = 0;
 
@@ -127,7 +127,7 @@ public class Goods {
         this.priceLevel2 = priceLevel2;
     }
 
-    @Comment(value = "商品价格(元) - 三级代理商")
+    @Comment(value = "商品价格(分) - 三级代理商")
     @Required(value = true)
     private Integer priceLevel3 = 0;
 

@@ -537,28 +537,28 @@
 						"required": true
 					},
 					{
-						"comment": "商品价格(元)",
+						"comment": "商品价格(分)",
 						"example": "example",
 						"javaType": "Integer",
 						"name": "price",
 						"required": true
 					},
 					{
-						"comment": "商品价格(元) - 一级代理商",
+						"comment": "商品价格(分) - 一级代理商",
 						"example": "example",
 						"javaType": "Integer",
 						"name": "priceLevel1",
 						"required": true
 					},
 					{
-						"comment": "商品价格(元) - 二级代理商",
+						"comment": "商品价格(分) - 二级代理商",
 						"example": "example",
 						"javaType": "Integer",
 						"name": "priceLevel2",
 						"required": true
 					},
 					{
-						"comment": "商品价格(元) - 三级代理商",
+						"comment": "商品价格(分) - 三级代理商",
 						"example": "example",
 						"javaType": "Integer",
 						"name": "priceLevel3",
@@ -722,7 +722,7 @@
 						"required": true
 					},
 					{
-						"comment": "搜索 - 关键字(用户登录名/手机号)",
+						"comment": "搜索 - 关键字(用户昵称/手机号)",
 						"example": "example",
 						"javaType": "String",
 						"name": "searchKeyword",
@@ -1206,7 +1206,7 @@
 	],
 	"serverAddressDefinition": {
 		"host": "47.104.17.187",
-		"port": 8084,
+		"port": 8085,
 		"url": "/yy-vip-center-manager-api"
 	},
 	"showdocDefinition": {
@@ -1214,5 +1214,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.2"
+	"version": "v0.0.3"
 }

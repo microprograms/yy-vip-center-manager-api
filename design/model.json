@@ -23,24 +23,6 @@
 					"required": true
 				},
 				{
-					"comment": "登录名",
-					"defaultValue": "",
-					"example": "example",
-					"javaType": "String",
-					"name": "loginName",
-					"primaryKey": 0,
-					"required": true
-				},
-				{
-					"comment": "密码",
-					"defaultValue": "",
-					"example": "example",
-					"javaType": "String",
-					"name": "password",
-					"primaryKey": 0,
-					"required": true
-				},
-				{
 					"comment": "手机号",
 					"defaultValue": "",
 					"example": "example",
@@ -50,7 +32,16 @@
 					"required": true
 				},
 				{
-					"comment": "钱包 - 余额(元)",
+					"comment": "昵称",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "nickname",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "钱包 - 余额(分)",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -110,11 +101,11 @@
 					"required": true
 				},
 				{
-					"comment": "用户登录名",
+					"comment": "昵称",
 					"defaultValue": "",
 					"example": "example",
 					"javaType": "String",
-					"name": "userLoginName",
+					"name": "userNickname",
 					"primaryKey": 0,
 					"required": true
 				},
@@ -137,7 +128,7 @@
 					"required": true
 				},
 				{
-					"comment": "金额(元)",
+					"comment": "金额(分)",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -146,7 +137,7 @@
 					"required": true
 				},
 				{
-					"comment": "钱包 - 旧余额(元)",
+					"comment": "钱包 - 旧余额(分)",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -155,7 +146,7 @@
 					"required": true
 				},
 				{
-					"comment": "钱包 - 新余额(元)",
+					"comment": "钱包 - 新余额(分)",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -461,7 +452,7 @@
 					"required": true
 				},
 				{
-					"comment": "商品价格(元)",
+					"comment": "商品价格(分)",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -470,7 +461,7 @@
 					"required": true
 				},
 				{
-					"comment": "商品价格(元) - 一级代理商",
+					"comment": "商品价格(分) - 一级代理商",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -479,7 +470,7 @@
 					"required": true
 				},
 				{
-					"comment": "商品价格(元) - 二级代理商",
+					"comment": "商品价格(分) - 二级代理商",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -488,7 +479,7 @@
 					"required": true
 				},
 				{
-					"comment": "商品价格(元) - 三级代理商",
+					"comment": "商品价格(分) - 三级代理商",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -602,16 +593,16 @@
 					"required": true
 				},
 				{
-					"comment": "用户登录名",
+					"comment": "用户昵称",
 					"defaultValue": "",
 					"example": "example",
 					"javaType": "String",
-					"name": "userLoginName",
+					"name": "userNickname",
 					"primaryKey": 0,
 					"required": true
 				},
 				{
-					"comment": "订单总金额(元)",
+					"comment": "订单总金额(分)",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
@@ -893,11 +884,11 @@
 					"required": true
 				},
 				{
-					"comment": "用户登录名",
+					"comment": "用户昵称",
 					"defaultValue": "",
 					"example": "example",
 					"javaType": "String",
-					"name": "userLoginName",
+					"name": "userNickname",
 					"primaryKey": 0,
 					"required": true
 				},
