@@ -1,16 +1,19 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
+import java.util.UUID;
+
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
-import com.github.microprograms.micro_api_runtime.model.Operator;
-import com.github.microprograms.micro_oss_core.MicroOss;
-import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
-import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
-import com.github.microprograms.micro_api_runtime.model.Response;
+import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
+import com.github.microprograms.micro_api_runtime.model.Operator;
 import com.github.microprograms.micro_api_runtime.model.Request;
+import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
+import com.github.microprograms.micro_oss_core.MicroOss;
+import com.github.microprograms.micro_oss_core.exception.MicroOssException;
+import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
 @MicroApi(comment = "商品类别 - 新增商品类别", type = "read", version = "v0.0.4")
 public class GoodsCategory_Add_Api {
@@ -19,8 +22,15 @@ public class GoodsCategory_Add_Api {
         return Fn.buildOperator(GoodsCategory_Add_Api.class, req.getToken());
     }
 
-    private static GoodsCategory buildGoodsCategory(Req req) {
+    private static GoodsCategory buildGoodsCategory(Req req) throws MicroOssException {
         GoodsCategory goodsCategory = new GoodsCategory();
+        goodsCategory.setId(UUID.randomUUID().toString());
+        goodsCategory.setName(req.getName());
+        goodsCategory.setReorder(req.getReorder());
+        AdminUser adminUser = Fn.queryAdminUserByToken(req.getToken());
+        goodsCategory.setCreaterId(adminUser.getId());
+        goodsCategory.setCreaterLoginName(adminUser.getLoginName());
+        goodsCategory.setDtCreate(System.currentTimeMillis());
         return goodsCategory;
     }
 
@@ -45,9 +55,7 @@ public class GoodsCategory_Add_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token")
-        @Required(value = true)
-        private String token;
+        @Comment(value = "Token") @Required(value = true) private String token;
 
         public String getToken() {
             return token;
@@ -57,9 +65,7 @@ public class GoodsCategory_Add_Api {
             this.token = token;
         }
 
-        @Comment(value = "商品类别名称")
-        @Required(value = true)
-        private String name;
+        @Comment(value = "商品类别名称") @Required(value = true) private String name;
 
         public String getName() {
             return name;
@@ -69,9 +75,7 @@ public class GoodsCategory_Add_Api {
             this.name = name;
         }
 
-        @Comment(value = "排序")
-        @Required(value = true)
-        private Integer reorder;
+        @Comment(value = "排序") @Required(value = true) private Integer reorder;
 
         public Integer getReorder() {
             return reorder;

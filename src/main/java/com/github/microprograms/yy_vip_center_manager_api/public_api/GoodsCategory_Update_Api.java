@@ -1,5 +1,6 @@
 package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
@@ -29,7 +30,10 @@ public class GoodsCategory_Update_Api {
     }
 
     private static List<Field> buildFieldsToUpdate(Req req) {
-        return null;
+        List<Field> fields = new ArrayList<>();
+        fields.add(new Field("name", req.getName()));
+        fields.add(new Field("reorder", req.getReorder()));
+        return Fn.buildFieldsIgnoreBlank(fields);
     }
 
     private static void core(Req req, Response resp) throws Exception {
