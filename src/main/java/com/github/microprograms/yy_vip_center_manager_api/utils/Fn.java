@@ -17,10 +17,15 @@ import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.micro_oss_ignite.Config;
 import com.github.microprograms.micro_oss_ignite.IgniteMicroOssProvider;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.AdminUser;
+import com.github.microprograms.yy_vip_center_manager_api.public_api.GoodsCategory;
 import com.typesafe.config.ConfigFactory;
 
 public class Fn {
     private static final Logger log = LoggerFactory.getLogger(Fn.class);
+
+    public static GoodsCategory queryGoodsCategoryById(String goodsCategoryId) throws MicroOssException {
+        return MicroOss.queryObject(GoodsCategory.class, Condition.build("id=", goodsCategoryId));
+    }
 
     public static AdminUser queryAdminUserByToken(String token) throws MicroOssException {
         return MicroOss.queryObject(AdminUser.class, Condition.build("token=", token));
