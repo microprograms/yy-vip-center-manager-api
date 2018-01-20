@@ -8,7 +8,7 @@ import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "调试 - Ignite", type = "read", version = "v0.0.4")
+@MicroApi(comment = "调试 - Ignite", type = "read", version = "v0.0.5")
 public class Debug_Ignite_Api {
 
     private static void core(Request req, Resp resp) throws Exception {
