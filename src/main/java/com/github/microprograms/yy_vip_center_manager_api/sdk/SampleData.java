@@ -23,7 +23,7 @@ public class SampleData {
         admin.setDtCreate(System.currentTimeMillis());
         admin.setLoginName("admin");
         admin.setLoginPassword("pass");
-        admin.setToken(UUID.randomUUID().toString());
+        admin.setToken("token");
         MicroOss.insertObject(admin);
     }
 
