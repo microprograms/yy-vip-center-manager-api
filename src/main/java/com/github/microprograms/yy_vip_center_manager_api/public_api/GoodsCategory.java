@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.5")
+@MicroRelationalDataModel(version = "v0.0.6")
 public class GoodsCategory {
 
     @Comment(value = "商品分类ID")
@@ -29,6 +29,18 @@ public class GoodsCategory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Comment(value = "描述")
+    @Required(value = true)
+    private String desc = "";
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     @Comment(value = "排序号(小的在前)")

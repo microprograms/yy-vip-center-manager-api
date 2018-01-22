@@ -338,6 +338,15 @@
 					"required": true
 				},
 				{
+					"comment": "描述",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "desc",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
 					"comment": "排序号(小的在前)",
 					"defaultValue": 0,
 					"example": "example",
@@ -940,6 +949,5 @@
 			],
 			"javaClassName": "GoodsBuyLimit"
 		}
-	],
-	"version": "v1.1.0"
+	]
 }

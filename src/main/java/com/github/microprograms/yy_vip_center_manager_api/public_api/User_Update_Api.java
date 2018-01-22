@@ -2,7 +2,6 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
@@ -18,7 +17,7 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "用户 - 更新", type = "read", version = "v0.0.5")
+@MicroApi(comment = "用户 - 更新", type = "read", version = "v0.0.6")
 public class User_Update_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {
@@ -58,7 +57,9 @@ public class User_Update_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token") @Required(value = true) private String token;
+        @Comment(value = "Token")
+        @Required(value = true)
+        private String token;
 
         public String getToken() {
             return token;
@@ -68,7 +69,9 @@ public class User_Update_Api {
             this.token = token;
         }
 
-        @Comment(value = "用户ID") @Required(value = true) private String userId;
+        @Comment(value = "用户ID")
+        @Required(value = true)
+        private String userId;
 
         public String getUserId() {
             return userId;
@@ -78,7 +81,9 @@ public class User_Update_Api {
             this.userId = userId;
         }
 
-        @Comment(value = "等级(0普通用户,1一级代理,2二级代理,3三级代理)") @Required(value = true) private Integer level;
+        @Comment(value = "等级(0普通用户,1一级代理,2二级代理,3三级代理)")
+        @Required(value = true)
+        private Integer level;
 
         public Integer getLevel() {
             return level;
