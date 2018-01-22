@@ -34,19 +34,20 @@ public class SampleData {
     }
 
     private static void addGoodsCategories() throws Exception {
-        MicroOss.insertObject(buildGoodsCategory(1, "分类一"));
-        MicroOss.insertObject(buildGoodsCategory(2, "分类二"));
-        MicroOss.insertObject(buildGoodsCategory(3, "分类三"));
+        MicroOss.insertObject(buildGoodsCategory(1, "分类一", "分类一的描述信息。"));
+        MicroOss.insertObject(buildGoodsCategory(2, "分类二", "描述信息，描述信息，描述信息，描述信息"));
+        MicroOss.insertObject(buildGoodsCategory(3, "分类三", "这是分类三的描述信息。"));
     }
 
     private static GoodsCategory queryGoodsCategoryByName(String name) throws Exception {
         return MicroOss.queryObject(GoodsCategory.class, Condition.build("name=", name));
     }
 
-    private static GoodsCategory buildGoodsCategory(int reorder, String name) throws Exception {
+    private static GoodsCategory buildGoodsCategory(int reorder, String name, String desc) throws Exception {
         GoodsCategory category = new GoodsCategory();
         category.setId(UUID.randomUUID().toString());
         category.setName(name);
+        category.setDesc(desc);
         category.setReorder(reorder);
         category.setCreaterId("");
         category.setCreaterLoginName("");
@@ -55,13 +56,17 @@ public class SampleData {
     }
 
     private static void addGoods() throws Exception {
+        GoodsCategory category1 = queryGoodsCategoryByName("分类一");
         for (int i = 1; i < 50; i++) {
-            MicroOss.insertObject(buildGoods(i, "测试商品" + i, "测试商品的描述信息" + i, Arrays.asList("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516641377045&di=dfd29501767acaf9e4ab7d372b34081d&imgtype=0&src=http%3A%2F%2Fpic31.photophoto.cn%2F20140608%2F0021033853003391_b.jpg")));
+            MicroOss.insertObject(buildGoods(category1, i, "测试商品" + i, "测试商品的描述信息" + i, Arrays.asList("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516641377045&di=dfd29501767acaf9e4ab7d372b34081d&imgtype=0&src=http%3A%2F%2Fpic31.photophoto.cn%2F20140608%2F0021033853003391_b.jpg")));
+        }
+        GoodsCategory category2 = queryGoodsCategoryByName("分类二");
+        for (int i = 1; i < 50; i++) {
+            MicroOss.insertObject(buildGoods(category2, i, "测试商品" + i, "测试商品的描述信息" + i, Arrays.asList("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516641377045&di=dfd29501767acaf9e4ab7d372b34081d&imgtype=0&src=http%3A%2F%2Fpic31.photophoto.cn%2F20140608%2F0021033853003391_b.jpg")));
         }
     }
 
-    private static Goods buildGoods(int reorder, String name, String desc, List<String> pictureUrls) throws Exception {
-        GoodsCategory category = queryGoodsCategoryByName("分类一");
+    private static Goods buildGoods(GoodsCategory category, int reorder, String name, String desc, List<String> pictureUrls) throws Exception {
         Goods goods = new Goods();
         goods.setId(UUID.randomUUID().toString());
         goods.setName(name);
