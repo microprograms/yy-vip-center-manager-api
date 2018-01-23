@@ -2,14 +2,18 @@ package com.github.microprograms.yy_vip_center_manager_api.sdk;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import com.alibaba.fastjson.JSON;
+import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
 import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.AdminUser;
+import com.github.microprograms.yy_vip_center_manager_api.public_api.ErrorCodeEnum;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.Goods;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.GoodsCategory;
+import com.github.microprograms.yy_vip_center_manager_api.public_api.RechargeCard;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
 public class SampleData {
@@ -19,6 +23,7 @@ public class SampleData {
         addAdminUsers();
         addGoodsCategories();
         addGoods();
+        addRechargeCards();
     }
 
     private static void addAdminUsers() throws Exception {
@@ -29,7 +34,7 @@ public class SampleData {
         admin.setDtCreate(System.currentTimeMillis());
         admin.setLoginName("admin");
         admin.setLoginPassword("pass");
-        admin.setToken("token");
+        admin.setToken(UUID.randomUUID().toString());
         MicroOss.insertObject(admin);
     }
 
@@ -83,5 +88,29 @@ public class SampleData {
         goods.setCreaterLoginName("");
         goods.setDtCreate(System.currentTimeMillis());
         return goods;
+    }
+
+    private static void addRechargeCards() throws Exception {
+        List<Integer> amounts = Arrays.asList(50, 100, 200, 500, 1000);
+        for (int i = 1; i < 50; i++) {
+            MicroOss.insertObject(buildRechargeCard(UUID.randomUUID().toString() + "@" + amounts.get(new Random().nextInt(amounts.size()))));
+        }
+    }
+
+    private static RechargeCard buildRechargeCard(String rawPasswordSeriesCode) throws Exception {
+        RechargeCard rechargeCard = new RechargeCard();
+        int lastIndexOfSeparator = rawPasswordSeriesCode.lastIndexOf("@");
+        if (lastIndexOfSeparator == -1) {
+            throw new MicroApiPassthroughException(ErrorCodeEnum.invalid_recharge_card);
+        }
+        String amountString = rawPasswordSeriesCode.substring(lastIndexOfSeparator + 1);
+        rechargeCard.setId(rawPasswordSeriesCode);
+        rechargeCard.setRawPasswordSeriesCode(rawPasswordSeriesCode);
+        rechargeCard.setAmount(Integer.valueOf(amountString));
+        AdminUser adminUser = Fn.queryAdminUserByLoginName("admin");
+        rechargeCard.setCreaterId(adminUser.getId());
+        rechargeCard.setCreaterLoginName(adminUser.getLoginName());
+        rechargeCard.setDtCreate(System.currentTimeMillis());
+        return rechargeCard;
     }
 }

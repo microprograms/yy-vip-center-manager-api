@@ -31,6 +31,10 @@ public class Fn {
         return MicroOss.queryObject(AdminUser.class, Condition.build("token=", token));
     }
 
+    public static AdminUser queryAdminUserByLoginName(String loginName) throws MicroOssException {
+        return MicroOss.queryObject(AdminUser.class, Condition.build("loginName=", loginName));
+    }
+
     public static Operator<AdminUser> buildOperator(Class<?> apiClass, String token) throws MicroOssException {
         AdminUser adminUser = queryAdminUserByToken(token);
         if (adminUser == null) {
