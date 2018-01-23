@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.6")
+@MicroRelationalDataModel(version = "v0.0.7")
 public class GoodsBuyLimit {
 
     @Comment(value = "ID")

@@ -12,7 +12,7 @@ import com.github.microprograms.micro_nested_data_model_runtime.Required;
 import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "充值卡 - 单个添加", type = "read", version = "v0.0.6")
+@MicroApi(comment = "充值卡 - 单个添加", type = "read", version = "v0.0.7")
 public class RechargeCard_Add_Api {
 
     private static Operator<?> getOperator(Req req) throws Exception {
@@ -24,7 +24,7 @@ public class RechargeCard_Add_Api {
         String rawPasswordSeriesCode = req.getRawPasswordSeriesCode();
         int lastIndexOfSeparator = rawPasswordSeriesCode.lastIndexOf("@");
         if (lastIndexOfSeparator == -1) {
-            throw new MicroApiPassthroughException(MicroApiReserveResponseCodeEnum.unknown_operator_exception);
+            throw new MicroApiPassthroughException(ErrorCodeEnum.invalid_recharge_card);
         }
         String amountString = rawPasswordSeriesCode.substring(lastIndexOfSeparator + 1);
         rechargeCard.setId(rawPasswordSeriesCode);

@@ -2,7 +2,6 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import java.util.Arrays;
 import java.util.List;
-
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
 import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_api_runtime.model.Response;
@@ -15,7 +14,7 @@ import com.github.microprograms.micro_oss_core.model.dml.PagerRequest;
 import com.github.microprograms.micro_oss_core.model.dml.PagerResponse;
 import com.github.microprograms.micro_oss_core.model.dml.Sort;
 
-@MicroApi(comment = "充值卡 - 查询列表", type = "read", version = "v0.0.6")
+@MicroApi(comment = "充值卡 - 查询列表", type = "read", version = "v0.0.7")
 public class RechargeCard_QueryList_Api {
 
     private static Condition buildFinalCondition(Req req) {
@@ -46,7 +45,9 @@ public class RechargeCard_QueryList_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token") @Required(value = true) private String token;
+        @Comment(value = "Token")
+        @Required(value = true)
+        private String token;
 
         public String getToken() {
             return token;
@@ -56,7 +57,9 @@ public class RechargeCard_QueryList_Api {
             this.token = token;
         }
 
-        @Comment(value = "页码(从0开始)") @Required(value = true) private Integer pageIndex;
+        @Comment(value = "页码(从0开始)")
+        @Required(value = true)
+        private Integer pageIndex;
 
         public Integer getPageIndex() {
             return pageIndex;
@@ -66,7 +69,9 @@ public class RechargeCard_QueryList_Api {
             this.pageIndex = pageIndex;
         }
 
-        @Comment(value = "页大小") @Required(value = true) private Integer pageSize;
+        @Comment(value = "页大小")
+        @Required(value = true)
+        private Integer pageSize;
 
         public Integer getPageSize() {
             return pageSize;
@@ -76,7 +81,9 @@ public class RechargeCard_QueryList_Api {
             this.pageSize = pageSize;
         }
 
-        @Comment(value = "搜索 - 关键字(密码序列编码串)") @Required(value = false) private String searchKeyword;
+        @Comment(value = "搜索 - 关键字(密码序列编码串)")
+        @Required(value = false)
+        private String searchKeyword;
 
         public String getSearchKeyword() {
             return searchKeyword;
@@ -89,7 +96,9 @@ public class RechargeCard_QueryList_Api {
 
     public static class Resp extends Response {
 
-        @Comment(value = "充值卡列表") @Required(value = true) private java.util.List<RechargeCard> data;
+        @Comment(value = "充值卡列表")
+        @Required(value = true)
+        private java.util.List<RechargeCard> data;
 
         public java.util.List<RechargeCard> getData() {
             return data;
@@ -99,7 +108,9 @@ public class RechargeCard_QueryList_Api {
             this.data = data;
         }
 
-        @Comment(value = "分页") @Required(value = true) private com.github.microprograms.micro_oss_core.model.dml.PagerResponse pager;
+        @Comment(value = "分页")
+        @Required(value = true)
+        private com.github.microprograms.micro_oss_core.model.dml.PagerResponse pager;
 
         public com.github.microprograms.micro_oss_core.model.dml.PagerResponse getPager() {
             return pager;
