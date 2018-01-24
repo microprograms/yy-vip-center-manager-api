@@ -33,7 +33,9 @@ public class System_Login_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "登录名") @Required(value = true) private String loginName;
+        @Comment(value = "登录名")
+        @Required(value = true)
+        private String loginName;
 
         public String getLoginName() {
             return loginName;
@@ -43,7 +45,9 @@ public class System_Login_Api {
             this.loginName = loginName;
         }
 
-        @Comment(value = "登录密码") @Required(value = true) private String loginPassword;
+        @Comment(value = "登录密码")
+        @Required(value = true)
+        private String loginPassword;
 
         public String getLoginPassword() {
             return loginPassword;
@@ -56,7 +60,9 @@ public class System_Login_Api {
 
     public static class Resp extends Response {
 
-        @Comment(value = "个人资料详情") @Required(value = true) private AdminUser data;
+        @Comment(value = "个人资料详情")
+        @Required(value = true)
+        private AdminUser data;
 
         public AdminUser getData() {
             return data;
