@@ -223,7 +223,7 @@ public class MixOrder {
         this.refundRequestAuditorLoginName = refundRequestAuditorLoginName;
     }
 
-    @Comment(value = "退货申请 - 状态(0未审核1已同意2已拒绝)")
+    @Comment(value = "退货申请 - 状态(0未申请,1未审核,2已同意,3已拒绝)")
     @Required(value = true)
     private Integer refundRequestStatus = 0;
 

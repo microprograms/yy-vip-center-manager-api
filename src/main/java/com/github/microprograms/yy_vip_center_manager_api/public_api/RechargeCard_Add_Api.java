@@ -57,7 +57,9 @@ public class RechargeCard_Add_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token") @Required(value = true) private String token;
+        @Comment(value = "Token")
+        @Required(value = true)
+        private String token;
 
         public String getToken() {
             return token;
@@ -67,7 +69,9 @@ public class RechargeCard_Add_Api {
             this.token = token;
         }
 
-        @Comment(value = "原始密码序列编码串") @Required(value = true) private String rawPasswordSeriesCode;
+        @Comment(value = "原始密码序列编码串")
+        @Required(value = true)
+        private String rawPasswordSeriesCode;
 
         public String getRawPasswordSeriesCode() {
             return rawPasswordSeriesCode;
