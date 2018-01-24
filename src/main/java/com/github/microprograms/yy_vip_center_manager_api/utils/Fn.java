@@ -18,10 +18,20 @@ import com.github.microprograms.micro_oss_mysql.Config;
 import com.github.microprograms.micro_oss_mysql.MysqlMicroOssProvider;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.AdminUser;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.GoodsCategory;
+import com.github.microprograms.yy_vip_center_manager_api.public_api.MixOrder;
+import com.github.microprograms.yy_vip_center_manager_api.public_api.User;
 import com.typesafe.config.ConfigFactory;
 
 public class Fn {
     private static final Logger log = LoggerFactory.getLogger(Fn.class);
+
+    public static User queryUserById(String userId) throws MicroOssException {
+        return MicroOss.queryObject(User.class, Condition.build("id=", userId));
+    }
+
+    public static MixOrder queryMixOrderById(String mixOrderId) throws MicroOssException {
+        return MicroOss.queryObject(MixOrder.class, Condition.build("id=", mixOrderId));
+    }
 
     public static GoodsCategory queryGoodsCategoryById(String goodsCategoryId) throws MicroOssException {
         return MicroOss.queryObject(GoodsCategory.class, Condition.build("id=", goodsCategoryId));
