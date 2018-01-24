@@ -12,7 +12,7 @@ import com.github.microprograms.micro_nested_data_model_runtime.Required;
 import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "充值卡 - 单个添加", type = "read", version = "v0.0.7")
+@MicroApi(comment = "充值卡 - 单个添加", type = "read", version = "v0.0.8")
 public class RechargeCard_Add_Api {
 
     private static Operator<?> getOperator(Req req) throws Exception {
