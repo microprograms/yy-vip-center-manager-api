@@ -617,7 +617,7 @@
 					"javaType": "Integer",
 					"name": "orderAmount",
 					"primaryKey": 0,
-					"required": false
+					"required": true
 				},
 				{
 					"comment": "商品 - ID",
@@ -626,7 +626,7 @@
 					"javaType": "String",
 					"name": "goodsId",
 					"primaryKey": 0,
-					"required": false
+					"required": true
 				},
 				{
 					"comment": "商品 - 名称",
@@ -644,7 +644,7 @@
 					"javaType": "String",
 					"name": "goodsDetail",
 					"primaryKey": 0,
-					"required": false
+					"required": true
 				},
 				{
 					"comment": "订单备注(JsonObject)",
@@ -653,7 +653,7 @@
 					"javaType": "String",
 					"name": "comment",
 					"primaryKey": 0,
-					"required": false
+					"required": true
 				},
 				{
 					"comment": "提交时间",
@@ -707,7 +707,7 @@
 					"javaType": "String",
 					"name": "refundRequestComment",
 					"primaryKey": 0,
-					"required": false
+					"required": true
 				},
 				{
 					"comment": "退货申请 - 申请时间",
