@@ -785,6 +785,62 @@
 			"type": "read"
 		},
 		{
+			"comment": "商品订单 - 同意退货",
+			"javaClassName": "MixOrder_AgreeRefundRequest_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品订单ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "orderId",
+						"primaryKey": 0,
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "商品订单 - 拒绝退货",
+			"javaClassName": "MixOrder_RejectRefundRequest_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "商品订单ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "orderId",
+						"primaryKey": 0,
+						"required": true
+					},
+					{
+						"comment": "退货申请 - 拒绝原因",
+						"example": "example",
+						"javaType": "String",
+						"name": "refundRequestRejectReason",
+						"primaryKey": 0,
+						"required": false
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
 			"comment": "用户 - 查询列表",
 			"javaClassName": "User_QueryList_Api",
 			"requestDefinition": {
@@ -1308,5 +1364,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.8"
+	"version": "v0.0.9"
 }

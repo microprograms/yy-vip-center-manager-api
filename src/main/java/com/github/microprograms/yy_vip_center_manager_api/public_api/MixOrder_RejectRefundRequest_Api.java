@@ -17,20 +17,26 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "用户 - 更新", type = "read", version = "v0.0.9")
-public class User_Update_Api {
+@MicroApi(comment = "商品订单 - 拒绝退货", type = "read", version = "v0.0.9")
+public class MixOrder_RejectRefundRequest_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {
-        return Fn.buildOperator(User_Update_Api.class, req.getToken());
+        return Fn.buildOperator(MixOrder_RejectRefundRequest_Api.class, req.getToken());
     }
 
     private static Condition buildFinalCondition(Req req) {
-        return Condition.build("id=", req.getUserId());
+        return Condition.build("id=", req.getOrderId());
     }
 
-    private static List<Field> buildFieldsToUpdate(Req req) {
+    private static List<Field> buildFieldsToUpdate(Req req) throws MicroOssException {
+        AdminUser adminUser = Fn.queryAdminUserByToken(req.getToken());
         List<Field> fields = new ArrayList<>();
-        fields.add(new Field("level", req.getLevel()));
+        // 退货申请 - 状态(0未申请,1未审核,2已同意,3已拒绝)
+        fields.add(new Field("refundRequestStatus", 3));
+        fields.add(new Field("refundRequestRejectReason", req.getRefundRequestRejectReason()));
+        fields.add(new Field("dtAuditRefundRequest", System.currentTimeMillis()));
+        fields.add(new Field("refundRequestAuditorId", adminUser.getId()));
+        fields.add(new Field("refundRequestAuditorLoginName", adminUser.getLoginName()));
         return Fn.buildFieldsIgnoreBlank(fields);
     }
 
@@ -42,14 +48,13 @@ public class User_Update_Api {
             throw new MicroApiPassthroughException(MicroApiReserveResponseCodeEnum.permission_denied_exception);
         Condition finalCondition = buildFinalCondition(req);
         List<Field> fields = buildFieldsToUpdate(req);
-        MicroOss.updateObject(User.class, fields, finalCondition);
+        MicroOss.updateObject(MixOrder.class, fields, finalCondition);
     }
 
     public static Response execute(Request request) throws Exception {
         Req req = (Req) request;
         MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
-        MicroApiUtils.throwExceptionIfBlank(req.getUserId(), "userId");
-        MicroApiUtils.throwExceptionIfBlank(req.getLevel(), "level");
+        MicroApiUtils.throwExceptionIfBlank(req.getOrderId(), "orderId");
         Response resp = new Response();
         core(req, resp);
         return resp;
@@ -57,9 +62,7 @@ public class User_Update_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token")
-        @Required(value = true)
-        private String token;
+        @Comment(value = "Token") @Required(value = true) private String token;
 
         public String getToken() {
             return token;
@@ -69,28 +72,24 @@ public class User_Update_Api {
             this.token = token;
         }
 
-        @Comment(value = "用户ID")
-        @Required(value = true)
-        private String userId;
+        @Comment(value = "商品订单ID") @Required(value = true) private String orderId;
 
-        public String getUserId() {
-            return userId;
+        public String getOrderId() {
+            return orderId;
         }
 
-        public void setUserId(String userId) {
-            this.userId = userId;
+        public void setOrderId(String orderId) {
+            this.orderId = orderId;
         }
 
-        @Comment(value = "等级(0普通用户,1一级代理,2二级代理,3三级代理)")
-        @Required(value = true)
-        private Integer level;
+        @Comment(value = "退货申请 - 拒绝原因") @Required(value = false) private String refundRequestRejectReason;
 
-        public Integer getLevel() {
-            return level;
+        public String getRefundRequestRejectReason() {
+            return refundRequestRejectReason;
         }
 
-        public void setLevel(Integer level) {
-            this.level = level;
+        public void setRefundRequestRejectReason(String refundRequestRejectReason) {
+            this.refundRequestRejectReason = refundRequestRejectReason;
         }
     }
 }
