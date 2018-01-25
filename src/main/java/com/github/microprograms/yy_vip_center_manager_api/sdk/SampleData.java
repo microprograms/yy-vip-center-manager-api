@@ -72,7 +72,7 @@ public class SampleData {
     private static void addGoods() throws Exception {
         GoodsCategory category1 = queryGoodsCategoryByName("分类一");
         try (Transaction transaction = MicroOss.beginTransaction()) {
-            for (int i = 1; i < 50; i++) {
+            for (int i = 1; i < 5; i++) {
                 List<String> pictureUrls = Arrays.asList("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516641377045&di=dfd29501767acaf9e4ab7d372b34081d&imgtype=0&src=http%3A%2F%2Fpic31.photophoto.cn%2F20140608%2F0021033853003391_b.jpg", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516797152293&di=f117a064690b1929cde9d80059fbe8e5&imgtype=0&src=http%3A%2F%2Fimg05.tooopen.com%2Fimages%2F20140701%2Fsy_64140121774.jpg");
                 Goods goods = buildGoods(category1, i, "测试商品" + i, "测试商品的描述信息" + i, pictureUrls);
                 transaction.insertObject(new InsertCommand(MicroOss.buildEntity(goods)));
@@ -81,7 +81,7 @@ public class SampleData {
         }
         GoodsCategory category2 = queryGoodsCategoryByName("分类二");
         try (Transaction transaction = MicroOss.beginTransaction()) {
-            for (int i = 1; i < 50; i++) {
+            for (int i = 1; i < 3; i++) {
                 List<String> pictureUrls = Arrays.asList("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516641377045&di=dfd29501767acaf9e4ab7d372b34081d&imgtype=0&src=http%3A%2F%2Fpic31.photophoto.cn%2F20140608%2F0021033853003391_b.jpg", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516797152293&di=f117a064690b1929cde9d80059fbe8e5&imgtype=0&src=http%3A%2F%2Fimg05.tooopen.com%2Fimages%2F20140701%2Fsy_64140121774.jpg");
                 Goods goods = buildGoods(category2, i, "第二套测试商品" + i, "测试商品的描述信息" + i, pictureUrls);
                 transaction.insertObject(new InsertCommand(MicroOss.buildEntity(goods)));
@@ -113,7 +113,7 @@ public class SampleData {
     private static void addRechargeCards() throws Exception {
         List<Integer> amounts = Arrays.asList(50, 100, 200, 500, 1000);
         try (Transaction transaction = MicroOss.beginTransaction()) {
-            for (int i = 1; i < 50; i++) {
+            for (int i = 1; i < 10; i++) {
                 transaction.insertObject(new InsertCommand(MicroOss.buildEntity(buildRechargeCard(UUID.randomUUID().toString() + "@" + amounts.get(new Random().nextInt(amounts.size()))))));
             }
             transaction.commit();

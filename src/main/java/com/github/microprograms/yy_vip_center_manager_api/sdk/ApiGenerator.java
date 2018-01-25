@@ -58,7 +58,8 @@ public class ApiGenerator {
     public static void publicApi() throws IOException {
         String srcFolder = "src/main/java";
         MicroApiSdk.setCallback(new MyCallback());
-        EngineDefinition engineDefinition = MicroApiSdk.buildEngineDefinition("design/public-api.json");
+        String path = ApiGenerator.class.getClassLoader().getResource("public-api.json").getPath();
+        EngineDefinition engineDefinition = MicroApiSdk.buildEngineDefinition(path);
         MicroApiSdk.deletePlainEntityJavaSourceFiles(srcFolder, engineDefinition);
         MicroApiSdk.updatePlainEntityJavaSourceFiles(srcFolder, engineDefinition);
         MicroApiSdk.updateApiJavaSourceFiles(srcFolder, engineDefinition);
@@ -67,7 +68,8 @@ public class ApiGenerator {
     }
 
     public static void publicApiForShowdoc() throws IOException {
-        EngineDefinition engineDefinition = MicroApiSdk.buildEngineDefinition("design/public-api.json");
+        String path = ApiGenerator.class.getClassLoader().getResource("public-api.json").getPath();
+        EngineDefinition engineDefinition = MicroApiSdk.buildEngineDefinition(path);
         ApiDocumentForShowdocUtils.update(engineDefinition);
     }
 

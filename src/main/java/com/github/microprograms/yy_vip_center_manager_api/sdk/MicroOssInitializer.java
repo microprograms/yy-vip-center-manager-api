@@ -25,7 +25,8 @@ public class MicroOssInitializer {
 
     public static void init() throws Exception {
         MysqlMicroOssProvider oss = (MysqlMicroOssProvider) MicroOss.get();
-        PlainModelerDefinition modelerDefinition = MicroRelationalDataModelSdk.buildModelerDefinition("design/model.json");
+        String path = MicroOssInitializer.class.getClassLoader().getResource("model.json").getPath();
+        PlainModelerDefinition modelerDefinition = MicroRelationalDataModelSdk.buildModelerDefinition(path);
         for (PlainEntityDefinition x : modelerDefinition.getEntityDefinitions()) {
             oss.dropTable(new DropTableCommand(x.getJavaClassName()));
             oss.createTable(new CreateTableCommand(buildTableDefinition(x)));
