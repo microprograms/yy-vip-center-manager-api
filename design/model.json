@@ -647,11 +647,11 @@
 					"required": true
 				},
 				{
-					"comment": "备注模板(0基础模板,1第一套,2第二套,3第三套)",
+					"comment": "商品 - 备注模板(0基础模板,1第一套,2第二套,3第三套)",
 					"defaultValue": 0,
 					"example": "example",
 					"javaType": "Integer",
-					"name": "commentTemplate",
+					"name": "goodsCommentTemplate",
 					"primaryKey": 0,
 					"required": true
 				},
