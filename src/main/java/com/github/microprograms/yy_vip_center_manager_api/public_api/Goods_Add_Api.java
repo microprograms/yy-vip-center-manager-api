@@ -76,7 +76,9 @@ public class Goods_Add_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token") @Required(value = true) private String token;
+        @Comment(value = "Token")
+        @Required(value = true)
+        private String token;
 
         public String getToken() {
             return token;
@@ -86,7 +88,9 @@ public class Goods_Add_Api {
             this.token = token;
         }
 
-        @Comment(value = "商品分类ID") @Required(value = true) private String categoryId;
+        @Comment(value = "商品分类ID")
+        @Required(value = true)
+        private String categoryId;
 
         public String getCategoryId() {
             return categoryId;
@@ -96,7 +100,9 @@ public class Goods_Add_Api {
             this.categoryId = categoryId;
         }
 
-        @Comment(value = "排序号(小的在前)") @Required(value = true) private Integer reorder;
+        @Comment(value = "排序号(小的在前)")
+        @Required(value = true)
+        private Integer reorder;
 
         public Integer getReorder() {
             return reorder;
@@ -106,7 +112,9 @@ public class Goods_Add_Api {
             this.reorder = reorder;
         }
 
-        @Comment(value = "图片URL列表(JsonArray)") @Required(value = true) private String pictureUrls;
+        @Comment(value = "图片URL列表(JsonArray)")
+        @Required(value = true)
+        private String pictureUrls;
 
         public String getPictureUrls() {
             return pictureUrls;
@@ -116,7 +124,9 @@ public class Goods_Add_Api {
             this.pictureUrls = pictureUrls;
         }
 
-        @Comment(value = "商品名称") @Required(value = true) private String name;
+        @Comment(value = "商品名称")
+        @Required(value = true)
+        private String name;
 
         public String getName() {
             return name;
@@ -126,7 +136,9 @@ public class Goods_Add_Api {
             this.name = name;
         }
 
-        @Comment(value = "商品描述/属性") @Required(value = true) private String desc;
+        @Comment(value = "商品描述/属性")
+        @Required(value = true)
+        private String desc;
 
         public String getDesc() {
             return desc;
@@ -136,7 +148,9 @@ public class Goods_Add_Api {
             this.desc = desc;
         }
 
-        @Comment(value = "商品价格(分)") @Required(value = true) private Integer price;
+        @Comment(value = "商品价格(分)")
+        @Required(value = true)
+        private Integer price;
 
         public Integer getPrice() {
             return price;
@@ -146,7 +160,9 @@ public class Goods_Add_Api {
             this.price = price;
         }
 
-        @Comment(value = "商品价格(分) - 一级代理商") @Required(value = true) private Integer priceLevel1;
+        @Comment(value = "商品价格(分) - 一级代理商")
+        @Required(value = true)
+        private Integer priceLevel1;
 
         public Integer getPriceLevel1() {
             return priceLevel1;
@@ -156,7 +172,9 @@ public class Goods_Add_Api {
             this.priceLevel1 = priceLevel1;
         }
 
-        @Comment(value = "商品价格(分) - 二级代理商") @Required(value = true) private Integer priceLevel2;
+        @Comment(value = "商品价格(分) - 二级代理商")
+        @Required(value = true)
+        private Integer priceLevel2;
 
         public Integer getPriceLevel2() {
             return priceLevel2;
@@ -166,7 +184,9 @@ public class Goods_Add_Api {
             this.priceLevel2 = priceLevel2;
         }
 
-        @Comment(value = "商品价格(分) - 三级代理商") @Required(value = true) private Integer priceLevel3;
+        @Comment(value = "商品价格(分) - 三级代理商")
+        @Required(value = true)
+        private Integer priceLevel3;
 
         public Integer getPriceLevel3() {
             return priceLevel3;
@@ -176,7 +196,9 @@ public class Goods_Add_Api {
             this.priceLevel3 = priceLevel3;
         }
 
-        @Comment(value = "商品库存") @Required(value = true) private Integer stock;
+        @Comment(value = "商品库存")
+        @Required(value = true)
+        private Integer stock;
 
         public Integer getStock() {
             return stock;
@@ -186,7 +208,9 @@ public class Goods_Add_Api {
             this.stock = stock;
         }
 
-        @Comment(value = "备注模板(0基础模板,1第一套,2第二套,3第三套)") @Required(value = true) private Integer commentTemplate;
+        @Comment(value = "备注模板(0基础模板,1第一套,2第二套,3第三套)")
+        @Required(value = true)
+        private Integer commentTemplate;
 
         public Integer getCommentTemplate() {
             return commentTemplate;

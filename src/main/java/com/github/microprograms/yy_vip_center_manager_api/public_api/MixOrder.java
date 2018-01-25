@@ -79,6 +79,18 @@ public class MixOrder {
         this.goodsName = goodsName;
     }
 
+    @Comment(value = "备注模板(0基础模板,1第一套,2第二套,3第三套)")
+    @Required(value = true)
+    private Integer commentTemplate = 0;
+
+    public Integer getCommentTemplate() {
+        return commentTemplate;
+    }
+
+    public void setCommentTemplate(Integer commentTemplate) {
+        this.commentTemplate = commentTemplate;
+    }
+
     @Comment(value = "商品 - 明细(JsonObject)")
     @Required(value = true)
     private String goodsDetail = "";
