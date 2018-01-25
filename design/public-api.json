@@ -584,6 +584,13 @@
 						"javaType": "Integer",
 						"name": "stock",
 						"required": true
+					},
+					{
+						"comment": "备注模板(0基础模板,1第一套,2第二套,3第三套)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "commentTemplate",
+						"required": true
 					}
 				]
 			},
@@ -1364,5 +1371,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.9"
+	"version": "v0.0.10"
 }

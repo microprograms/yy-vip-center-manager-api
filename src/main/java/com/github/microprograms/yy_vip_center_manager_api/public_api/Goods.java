@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.9")
+@MicroRelationalDataModel(version = "v0.0.10")
 public class Goods {
 
     @Comment(value = "商品ID")
@@ -233,6 +233,18 @@ public class Goods {
 
     public void setSoldOutOperatorLoginName(String soldOutOperatorLoginName) {
         this.soldOutOperatorLoginName = soldOutOperatorLoginName;
+    }
+
+    @Comment(value = "备注模板(0基础模板,1第一套,2第二套,3第三套)")
+    @Required(value = true)
+    private Integer commentTemplate = 0;
+
+    public Integer getCommentTemplate() {
+        return commentTemplate;
+    }
+
+    public void setCommentTemplate(Integer commentTemplate) {
+        this.commentTemplate = commentTemplate;
     }
 
     @Comment(value = "上次修改时间")

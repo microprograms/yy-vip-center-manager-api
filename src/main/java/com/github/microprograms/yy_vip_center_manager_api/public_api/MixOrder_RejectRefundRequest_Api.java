@@ -17,7 +17,7 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "商品订单 - 拒绝退货", type = "read", version = "v0.0.9")
+@MicroApi(comment = "商品订单 - 拒绝退货", type = "read", version = "v0.0.10")
 public class MixOrder_RejectRefundRequest_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {
@@ -62,7 +62,9 @@ public class MixOrder_RejectRefundRequest_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token") @Required(value = true) private String token;
+        @Comment(value = "Token")
+        @Required(value = true)
+        private String token;
 
         public String getToken() {
             return token;
@@ -72,7 +74,9 @@ public class MixOrder_RejectRefundRequest_Api {
             this.token = token;
         }
 
-        @Comment(value = "商品订单ID") @Required(value = true) private String orderId;
+        @Comment(value = "商品订单ID")
+        @Required(value = true)
+        private String orderId;
 
         public String getOrderId() {
             return orderId;
@@ -82,7 +86,9 @@ public class MixOrder_RejectRefundRequest_Api {
             this.orderId = orderId;
         }
 
-        @Comment(value = "退货申请 - 拒绝原因") @Required(value = false) private String refundRequestRejectReason;
+        @Comment(value = "退货申请 - 拒绝原因")
+        @Required(value = false)
+        private String refundRequestRejectReason;
 
         public String getRefundRequestRejectReason() {
             return refundRequestRejectReason;
