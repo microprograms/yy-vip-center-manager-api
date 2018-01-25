@@ -22,6 +22,10 @@ public class SampleData {
 
     public static void main(String[] args) throws Exception {
         Fn.initOss();
+        init();
+    }
+
+    public static void init() throws Exception {
         addAdminUsers();
         addGoodsCategories();
         addGoods();

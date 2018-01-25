@@ -20,6 +20,10 @@ public class MicroOssInitializer {
 
     public static void main(String[] args) throws Exception {
         Fn.initOss();
+        init();
+    }
+
+    public static void init() throws Exception {
         MysqlMicroOssProvider oss = (MysqlMicroOssProvider) MicroOss.get();
         PlainModelerDefinition modelerDefinition = MicroRelationalDataModelSdk.buildModelerDefinition("design/model.json");
         for (PlainEntityDefinition x : modelerDefinition.getEntityDefinitions()) {

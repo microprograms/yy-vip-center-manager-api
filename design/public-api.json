@@ -110,19 +110,8 @@
 			"type": "read"
 		},
 		{
-			"comment": "调试 - Ignite",
-			"javaClassName": "Debug_Ignite_Api",
-			"responseDefinition": {
-				"fieldDefinitions": [
-					{
-						"comment": "缓存名列表",
-						"example": "example",
-						"javaType": "java.util.List<String>",
-						"name": "cacheNames",
-						"required": true
-					}
-				]
-			},
+			"comment": "调试 - 初始化数据库",
+			"javaClassName": "Debug_InitDatabase_Api",
 			"type": "read"
 		},
 		{
@@ -1371,5 +1360,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.10"
+	"version": "v0.0.11"
 }

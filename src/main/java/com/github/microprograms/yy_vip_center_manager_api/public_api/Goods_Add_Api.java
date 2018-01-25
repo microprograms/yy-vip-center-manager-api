@@ -13,7 +13,7 @@ import com.github.microprograms.micro_nested_data_model_runtime.Required;
 import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "商品 - 添加新商品", type = "read", version = "v0.0.10")
+@MicroApi(comment = "商品 - 添加新商品", type = "read", version = "v0.0.11")
 public class Goods_Add_Api {
 
     private static Operator<?> getOperator(Req req) throws Exception {
