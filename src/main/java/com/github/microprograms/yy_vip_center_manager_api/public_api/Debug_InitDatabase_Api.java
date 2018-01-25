@@ -14,9 +14,10 @@ public class Debug_InitDatabase_Api {
     private static final Logger log = LoggerFactory.getLogger(Debug_InitDatabase_Api.class);
 
     private static void core(Request req, Response resp) throws Exception {
-        log.info("int database");
+        log.info("init database...");
         MicroOssInitializer.init();
         SampleData.init();
+        log.info("init database done.");
     }
 
     public static Response execute(Request request) throws Exception {
