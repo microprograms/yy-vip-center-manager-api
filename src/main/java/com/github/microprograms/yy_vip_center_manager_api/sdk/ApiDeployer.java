@@ -6,7 +6,8 @@ import com.github.microprograms.micro_api_sdk.utils.ApiDeployUtils;
 
 public class ApiDeployer {
     public static void main(String[] args) throws Exception {
-        EngineDefinition engineDefinition = MicroApiSdk.buildEngineDefinition("design/public-api.json");
+        String path = ApiDeployer.class.getClassLoader().getResource("public-api.json").getPath();
+        EngineDefinition engineDefinition = MicroApiSdk.buildEngineDefinition(path);
         ApiDeployUtils.stop(engineDefinition);
         ApiDeployUtils.deploy(engineDefinition);
         ApiDeployUtils.start(engineDefinition);
