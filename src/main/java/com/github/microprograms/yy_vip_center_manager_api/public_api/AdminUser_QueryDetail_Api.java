@@ -9,7 +9,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "管理员 - 查询详情", type = "read", version = "v0.0.11")
+@MicroApi(comment = "管理员 - 查询详情", type = "read", version = "v0.0.12")
 public class AdminUser_QueryDetail_Api {
 
     private static Condition buildFinalCondition(Req req) {

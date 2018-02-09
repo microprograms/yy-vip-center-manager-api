@@ -14,7 +14,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "商品限购 - 更新商品限购", type = "read", version = "v0.0.11")
+@MicroApi(comment = "商品限购 - 更新商品限购", type = "read", version = "v0.0.12")
 public class GoodsBuyLimit_Update_Api {
 
     private static Operator<?> getOperator(Req req) {

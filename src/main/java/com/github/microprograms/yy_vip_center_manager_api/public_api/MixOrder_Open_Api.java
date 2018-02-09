@@ -2,6 +2,7 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
@@ -17,23 +18,23 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "商品 - 编辑商品", type = "read", version = "v0.0.12")
-public class Goods_Update_Api {
+@MicroApi(comment = "商品订单 - 标记为未处理", type = "read", version = "v0.0.12")
+public class MixOrder_Open_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {
-        return Fn.buildOperator(Goods_Update_Api.class, req.getToken());
+        return Fn.buildOperator(MixOrder_Close_Api.class, req.getToken());
     }
 
     private static Condition buildFinalCondition(Req req) {
-        return Condition.build("id=", req.getGoodsId());
+        return Condition.build("id=", req.getOrderId());
     }
 
-    private static List<Field> buildFieldsToUpdate(Req req) {
+    private static List<Field> buildFieldsToUpdate(Req req) throws MicroOssException {
         List<Field> fields = new ArrayList<>();
-        fields.add(new Field("desc", req.getDesc()));
-        fields.add(new Field("name", req.getName()));
-        fields.add(new Field("pictureUrls", req.getPictureUrls()));
-        fields.add(new Field("reorder", req.getReorder()));
+        fields.add(new Field("isDispose", 0));
+        fields.add(new Field("dtDispose", 0L));
+        fields.add(new Field("disposerId", ""));
+        fields.add(new Field("disposerLoginName", ""));
         return Fn.buildFieldsIgnoreBlank(fields);
     }
 
@@ -45,13 +46,13 @@ public class Goods_Update_Api {
             throw new MicroApiPassthroughException(MicroApiReserveResponseCodeEnum.permission_denied_exception);
         Condition finalCondition = buildFinalCondition(req);
         List<Field> fields = buildFieldsToUpdate(req);
-        MicroOss.updateObject(Goods.class, fields, finalCondition);
+        MicroOss.updateObject(MixOrder.class, fields, finalCondition);
     }
 
     public static Response execute(Request request) throws Exception {
         Req req = (Req) request;
         MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
-        MicroApiUtils.throwExceptionIfBlank(req.getGoodsId(), "goodsId");
+        MicroApiUtils.throwExceptionIfBlank(req.getOrderId(), "orderId");
         Response resp = new Response();
         core(req, resp);
         return resp;
@@ -59,9 +60,7 @@ public class Goods_Update_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token")
-        @Required(value = true)
-        private String token;
+        @Comment(value = "Token") @Required(value = true) private String token;
 
         public String getToken() {
             return token;
@@ -71,64 +70,14 @@ public class Goods_Update_Api {
             this.token = token;
         }
 
-        @Comment(value = "商品ID")
-        @Required(value = true)
-        private String goodsId;
+        @Comment(value = "商品订单ID") @Required(value = true) private String orderId;
 
-        public String getGoodsId() {
-            return goodsId;
+        public String getOrderId() {
+            return orderId;
         }
 
-        public void setGoodsId(String goodsId) {
-            this.goodsId = goodsId;
-        }
-
-        @Comment(value = "排序号(小的在前)")
-        @Required(value = false)
-        private Integer reorder;
-
-        public Integer getReorder() {
-            return reorder;
-        }
-
-        public void setReorder(Integer reorder) {
-            this.reorder = reorder;
-        }
-
-        @Comment(value = "图片URL列表(JsonArray)")
-        @Required(value = false)
-        private String pictureUrls;
-
-        public String getPictureUrls() {
-            return pictureUrls;
-        }
-
-        public void setPictureUrls(String pictureUrls) {
-            this.pictureUrls = pictureUrls;
-        }
-
-        @Comment(value = "商品名称")
-        @Required(value = false)
-        private String name;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        @Comment(value = "商品描述/属性")
-        @Required(value = false)
-        private String desc;
-
-        public String getDesc() {
-            return desc;
-        }
-
-        public void setDesc(String desc) {
-            this.desc = desc;
+        public void setOrderId(String orderId) {
+            this.orderId = orderId;
         }
     }
 }
