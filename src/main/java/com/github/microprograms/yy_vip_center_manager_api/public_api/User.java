@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.12")
+@MicroRelationalDataModel(version = "v0.0.14")
 public class User {
 
     @Comment(value = "用户ID")
@@ -77,6 +77,18 @@ public class User {
 
     public void setLevel(Integer level) {
         this.level = level;
+    }
+
+    @Comment(value = "是否禁用(0否1是)")
+    @Required(value = true)
+    private Integer isDisable = 0;
+
+    public Integer getIsDisable() {
+        return isDisable;
+    }
+
+    public void setIsDisable(Integer isDisable) {
+        this.isDisable = isDisable;
     }
 
     @Comment(value = "注册时间")

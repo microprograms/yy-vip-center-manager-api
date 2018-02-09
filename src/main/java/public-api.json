@@ -976,7 +976,14 @@
 						"javaType": "Integer",
 						"name": "level",
 						"primaryKey": 0,
-						"required": true
+						"required": false
+					},
+					{
+						"comment": "是否禁用(0否1是)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "isDisable",
+						"required": false
 					}
 				]
 			},
@@ -1089,6 +1096,29 @@
 						"example": "example",
 						"javaType": "String",
 						"name": "rawPasswordSeriesCode",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "充值卡 - 删除",
+			"javaClassName": "RechargeCard_Delete_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "充值卡ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "rechargeCardId",
 						"required": true
 					}
 				]
@@ -1384,5 +1414,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.12"
+	"version": "v0.0.14"
 }

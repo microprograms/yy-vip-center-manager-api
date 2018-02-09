@@ -9,7 +9,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "充值卡 - 批量从文件添加", type = "read", version = "v0.0.12")
+@MicroApi(comment = "充值卡 - 批量从文件添加", type = "read", version = "v0.0.14")
 public class RechargeCard_AddFromFile_Api {
 
     private static void core(Req req, Response resp) throws Exception {

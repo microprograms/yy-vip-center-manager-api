@@ -14,7 +14,7 @@ import com.github.microprograms.micro_oss_core.exception.MicroOssException;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "商品类别 - 删除商品类别", type = "read", version = "v0.0.12")
+@MicroApi(comment = "商品类别 - 删除商品类别", type = "read", version = "v0.0.14")
 public class GoodsCategory_Delete_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {

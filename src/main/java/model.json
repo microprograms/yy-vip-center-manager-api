@@ -59,6 +59,15 @@
 					"required": true
 				},
 				{
+					"comment": "是否禁用(0否1是)",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "isDisable",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
 					"comment": "注册时间",
 					"defaultValue": 0,
 					"example": "example",

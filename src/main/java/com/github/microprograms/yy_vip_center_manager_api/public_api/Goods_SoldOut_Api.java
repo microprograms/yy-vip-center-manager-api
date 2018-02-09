@@ -17,7 +17,7 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "商品 - 下架", type = "read", version = "v0.0.12")
+@MicroApi(comment = "商品 - 下架", type = "read", version = "v0.0.14")
 public class Goods_SoldOut_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {

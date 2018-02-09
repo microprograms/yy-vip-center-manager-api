@@ -11,7 +11,7 @@ import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "商品类别 - 查询全部", type = "read", version = "v0.0.12")
+@MicroApi(comment = "商品类别 - 查询全部", type = "read", version = "v0.0.14")
 public class GoodsCategory_QueryAll_Api {
 
     private static Condition buildFinalCondition(Request req) {

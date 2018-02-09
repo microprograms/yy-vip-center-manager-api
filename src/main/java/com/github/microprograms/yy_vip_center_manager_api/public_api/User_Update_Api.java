@@ -17,7 +17,7 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "用户 - 更新", type = "read", version = "v0.0.12")
+@MicroApi(comment = "用户 - 更新", type = "read", version = "v0.0.14")
 public class User_Update_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {
@@ -31,6 +31,7 @@ public class User_Update_Api {
     private static List<Field> buildFieldsToUpdate(Req req) {
         List<Field> fields = new ArrayList<>();
         fields.add(new Field("level", req.getLevel()));
+        fields.add(new Field("isDisable", req.getIsDisable()));
         return Fn.buildFieldsIgnoreBlank(fields);
     }
 
@@ -49,7 +50,6 @@ public class User_Update_Api {
         Req req = (Req) request;
         MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
         MicroApiUtils.throwExceptionIfBlank(req.getUserId(), "userId");
-        MicroApiUtils.throwExceptionIfBlank(req.getLevel(), "level");
         Response resp = new Response();
         core(req, resp);
         return resp;
@@ -82,7 +82,7 @@ public class User_Update_Api {
         }
 
         @Comment(value = "等级(0普通用户,1一级代理,2二级代理,3三级代理)")
-        @Required(value = true)
+        @Required(value = false)
         private Integer level;
 
         public Integer getLevel() {
@@ -91,6 +91,18 @@ public class User_Update_Api {
 
         public void setLevel(Integer level) {
             this.level = level;
+        }
+
+        @Comment(value = "是否禁用(0否1是)")
+        @Required(value = false)
+        private Integer isDisable;
+
+        public Integer getIsDisable() {
+            return isDisable;
+        }
+
+        public void setIsDisable(Integer isDisable) {
+            this.isDisable = isDisable;
         }
     }
 }
