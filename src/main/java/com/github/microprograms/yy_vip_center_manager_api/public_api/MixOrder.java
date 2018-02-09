@@ -4,7 +4,7 @@ import com.github.microprograms.micro_relational_data_model_runtime.MicroRelatio
 import com.github.microprograms.micro_relational_data_model_runtime.Comment;
 import com.github.microprograms.micro_relational_data_model_runtime.Required;
 
-@MicroRelationalDataModel(version = "v0.0.14")
+@MicroRelationalDataModel(version = "v0.0.15")
 public class MixOrder {
 
     @Comment(value = "订单号")
@@ -77,6 +77,30 @@ public class MixOrder {
 
     public void setGoodsName(String goodsName) {
         this.goodsName = goodsName;
+    }
+
+    @Comment(value = "商品 - 分类ID")
+    @Required(value = true)
+    private String goodsCategoryId = "";
+
+    public String getGoodsCategoryId() {
+        return goodsCategoryId;
+    }
+
+    public void setGoodsCategoryId(String goodsCategoryId) {
+        this.goodsCategoryId = goodsCategoryId;
+    }
+
+    @Comment(value = "商品 - 分类名称")
+    @Required(value = true)
+    private String goodsCategoryName = "";
+
+    public String getGoodsCategoryName() {
+        return goodsCategoryName;
+    }
+
+    public void setGoodsCategoryName(String goodsCategoryName) {
+        this.goodsCategoryName = goodsCategoryName;
     }
 
     @Comment(value = "商品 - 备注模板(0基础模板,1第一套,2第二套,3第三套)")

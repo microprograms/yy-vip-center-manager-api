@@ -693,7 +693,14 @@
 						"required": false
 					},
 					{
-						"comment": "状态(0全部,1未处理,2已处理,3退款审核中,4已退款,5已拒绝退款)",
+						"comment": "搜索 - 商品分类",
+						"example": "example",
+						"javaType": "String",
+						"name": "searchGoodsCategoryId",
+						"required": true
+					},
+					{
+						"comment": "搜索 - 状态(0全部,1未处理,2已处理,3退款审核中,4已退款,5已拒绝退款)",
 						"example": "example",
 						"javaType": "Integer",
 						"name": "searchStatus",
@@ -1414,5 +1421,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.14"
+	"version": "v0.0.15"
 }

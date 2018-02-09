@@ -12,7 +12,7 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "管理员 - 删除", type = "read", version = "v0.0.14")
+@MicroApi(comment = "管理员 - 删除", type = "read", version = "v0.0.15")
 public class AdminUser_Delete_Api {
 
     private static Operator<?> getOperator(Req req) {
