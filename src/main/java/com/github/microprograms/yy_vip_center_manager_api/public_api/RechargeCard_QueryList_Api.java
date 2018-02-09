@@ -14,7 +14,7 @@ import com.github.microprograms.micro_oss_core.model.dml.PagerRequest;
 import com.github.microprograms.micro_oss_core.model.dml.PagerResponse;
 import com.github.microprograms.micro_oss_core.model.dml.Sort;
 
-@MicroApi(comment = "充值卡 - 查询列表", type = "read", version = "v0.0.15")
+@MicroApi(comment = "充值卡 - 查询列表", type = "read", version = "v0.0.16")
 public class RechargeCard_QueryList_Api {
 
     private static Condition buildFinalCondition(Req req) {
