@@ -1182,6 +1182,17 @@
 		{
 			"comment": "商品限购 - 查询全部",
 			"javaClassName": "GoodsBuyLimit_QueryAll_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "goodsId",
+						"required": true
+					}
+				]
+			},
 			"responseDefinition": {
 				"fieldDefinitions": [
 					{
@@ -1246,15 +1257,13 @@
 						"example": "example",
 						"javaType": "String",
 						"name": "goodsId",
-						"primaryKey": 0,
 						"required": true
 					},
 					{
-						"comment": "用户ID",
+						"comment": "用户昵称",
 						"example": "example",
 						"javaType": "String",
-						"name": "userId",
-						"primaryKey": 0,
+						"name": "userNickname",
 						"required": true
 					},
 					{
@@ -1262,7 +1271,6 @@
 						"example": "example",
 						"javaType": "Integer",
 						"name": "amount",
-						"primaryKey": 0,
 						"required": true
 					}
 				]
@@ -1366,6 +1374,16 @@
 			"code": 1015,
 			"message": "无效的充值卡",
 			"name": "invalid_recharge_card"
+		},
+		{
+			"code": 1016,
+			"message": "无效的昵称",
+			"name": "invalid_nickname"
+		},
+		{
+			"code": 1017,
+			"message": "限购已存在",
+			"name": "goodsBuyLimit_already_exist"
 		}
 	],
 	"javaPackageName": "com.github.microprograms.yy_vip_center_manager_api.public_api",
@@ -1421,5 +1439,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.16"
+	"version": "v0.0.18"
 }

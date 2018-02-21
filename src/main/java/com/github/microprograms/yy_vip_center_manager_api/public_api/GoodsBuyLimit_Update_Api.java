@@ -3,9 +3,12 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
 import com.github.microprograms.micro_api_runtime.model.Operator;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
+import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 import com.github.microprograms.micro_oss_core.model.Field;
+import java.util.ArrayList;
 import java.util.List;
 import com.github.microprograms.micro_oss_core.MicroOss;
+import com.github.microprograms.micro_oss_core.exception.MicroOssException;
 import com.github.microprograms.micro_api_runtime.exception.MicroApiPassthroughException;
 import com.github.microprograms.micro_api_runtime.enums.MicroApiReserveResponseCodeEnum;
 import com.github.microprograms.micro_api_runtime.model.Response;
@@ -14,11 +17,11 @@ import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 
-@MicroApi(comment = "商品限购 - 更新商品限购", type = "read", version = "v0.0.16")
+@MicroApi(comment = "商品限购 - 更新商品限购", type = "read", version = "v0.0.18")
 public class GoodsBuyLimit_Update_Api {
 
-    private static Operator<?> getOperator(Req req) {
-        return null;
+    private static Operator<?> getOperator(Req req) throws MicroOssException {
+        return Fn.buildOperator(GoodsBuyLimit_Update_Api.class, req.getToken());
     }
 
     private static Condition buildFinalCondition(Req req) {
@@ -26,7 +29,9 @@ public class GoodsBuyLimit_Update_Api {
     }
 
     private static List<Field> buildFieldsToUpdate(Req req) {
-        return null;
+        List<Field> fields = new ArrayList<>();
+        fields.add(new Field("amount", req.getAmount()));
+        return Fn.buildFieldsIgnoreBlank(fields);
     }
 
     private static void core(Req req, Response resp) throws Exception {

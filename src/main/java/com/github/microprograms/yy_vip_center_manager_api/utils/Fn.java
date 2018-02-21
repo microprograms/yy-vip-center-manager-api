@@ -14,9 +14,12 @@ import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_oss_core.exception.MicroOssException;
 import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
+import com.github.microprograms.micro_oss_core.model.dml.Where;
 import com.github.microprograms.micro_oss_mysql.Config;
 import com.github.microprograms.micro_oss_mysql.MysqlMicroOssProvider;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.AdminUser;
+import com.github.microprograms.yy_vip_center_manager_api.public_api.Goods;
+import com.github.microprograms.yy_vip_center_manager_api.public_api.GoodsBuyLimit;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.GoodsCategory;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.MixOrder;
 import com.github.microprograms.yy_vip_center_manager_api.public_api.User;
@@ -25,12 +28,24 @@ import com.typesafe.config.ConfigFactory;
 public class Fn {
     private static final Logger log = LoggerFactory.getLogger(Fn.class);
 
+    public static GoodsBuyLimit queryGoodsBuyLimitByGoodsIdAndUserNickname(String goodsId, String userNickname) throws MicroOssException {
+        return MicroOss.queryObject(GoodsBuyLimit.class, Where.and(Condition.build("goodsId=", goodsId), Condition.build("userNickname=", userNickname)));
+    }
+
     public static User queryUserById(String userId) throws MicroOssException {
         return MicroOss.queryObject(User.class, Condition.build("id=", userId));
     }
 
+    public static User queryUserByNickname(String userNickname) throws MicroOssException {
+        return MicroOss.queryObject(User.class, Condition.build("nickname=", userNickname));
+    }
+
     public static MixOrder queryMixOrderById(String mixOrderId) throws MicroOssException {
         return MicroOss.queryObject(MixOrder.class, Condition.build("id=", mixOrderId));
+    }
+
+    public static Goods queryGoodsById(String goodsId) throws MicroOssException {
+        return MicroOss.queryObject(Goods.class, Condition.build("id=", goodsId));
     }
 
     public static GoodsCategory queryGoodsCategoryById(String goodsCategoryId) throws MicroOssException {

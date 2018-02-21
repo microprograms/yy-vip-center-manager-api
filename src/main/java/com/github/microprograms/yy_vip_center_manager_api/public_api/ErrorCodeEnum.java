@@ -10,7 +10,9 @@ public enum ErrorCodeEnum implements ResponseCode {
     invalid_password(1012, "账号和密码不匹配"), /**手机号已被注册*/
     phone_already_registered(1013, "手机号已被注册"), /**验证码错误*/
     invalid_verification_code(1014, "验证码错误"), /**无效的充值卡*/
-    invalid_recharge_card(1015, "无效的充值卡");
+    invalid_recharge_card(1015, "无效的充值卡"), /**无效的昵称*/
+    invalid_nickname(1016, "无效的昵称"), /**限购已存在*/
+    goodsBuyLimit_already_exist(1017, "限购已存在");
 
     private ErrorCodeEnum(int code, String message) {
         this.code = code;
