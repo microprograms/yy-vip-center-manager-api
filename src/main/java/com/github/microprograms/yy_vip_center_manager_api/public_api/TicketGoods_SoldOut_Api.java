@@ -17,22 +17,24 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "商品类别 - 更新商品类别", type = "read", version = "v0.0.20")
-public class GoodsCategory_Update_Api {
+@MicroApi(comment = "卡密商品 - 下架", type = "read", version = "v0.0.20")
+public class TicketGoods_SoldOut_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {
-        return Fn.buildOperator(GoodsCategory_Update_Api.class, req.getToken());
+        return Fn.buildOperator(TicketGoods_SoldOut_Api.class, req.getToken());
     }
 
     private static Condition buildFinalCondition(Req req) {
-        return Condition.build("id=", req.getCategoryId());
+        return Condition.build("id=", req.getTicketGoodsId());
     }
 
-    private static List<Field> buildFieldsToUpdate(Req req) {
+    private static List<Field> buildFieldsToUpdate(Req req) throws MicroOssException {
         List<Field> fields = new ArrayList<>();
-        fields.add(new Field("name", req.getName()));
-        fields.add(new Field("desc", req.getDesc()));
-        fields.add(new Field("reorder", req.getReorder()));
+        fields.add(new Field("isSoldOut", 1));
+        fields.add(new Field("dtSoldOut", System.currentTimeMillis()));
+        AdminUser adminUser = Fn.queryAdminUserByToken(req.getToken());
+        fields.add(new Field("soldOutOperatorId", adminUser.getId()));
+        fields.add(new Field("soldOutOperatorLoginName", adminUser.getLoginName()));
         return Fn.buildFieldsIgnoreBlank(fields);
     }
 
@@ -44,14 +46,13 @@ public class GoodsCategory_Update_Api {
             throw new MicroApiPassthroughException(MicroApiReserveResponseCodeEnum.permission_denied_exception);
         Condition finalCondition = buildFinalCondition(req);
         List<Field> fields = buildFieldsToUpdate(req);
-        MicroOss.updateObject(GoodsCategory.class, fields, finalCondition);
+        MicroOss.updateObject(TicketGoods.class, fields, finalCondition);
     }
 
     public static Response execute(Request request) throws Exception {
         Req req = (Req) request;
         MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
-        MicroApiUtils.throwExceptionIfBlank(req.getCategoryId(), "categoryId");
-        MicroApiUtils.throwExceptionIfBlank(req.getDesc(), "desc");
+        MicroApiUtils.throwExceptionIfBlank(req.getTicketGoodsId(), "ticketGoodsId");
         Response resp = new Response();
         core(req, resp);
         return resp;
@@ -71,52 +72,16 @@ public class GoodsCategory_Update_Api {
             this.token = token;
         }
 
-        @Comment(value = "商品类别ID")
+        @Comment(value = "卡密商品ID")
         @Required(value = true)
-        private String categoryId;
+        private String ticketGoodsId;
 
-        public String getCategoryId() {
-            return categoryId;
+        public String getTicketGoodsId() {
+            return ticketGoodsId;
         }
 
-        public void setCategoryId(String categoryId) {
-            this.categoryId = categoryId;
-        }
-
-        @Comment(value = "商品类别名称")
-        @Required(value = false)
-        private String name;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        @Comment(value = "商品类别描述")
-        @Required(value = true)
-        private String desc;
-
-        public String getDesc() {
-            return desc;
-        }
-
-        public void setDesc(String desc) {
-            this.desc = desc;
-        }
-
-        @Comment(value = "排序")
-        @Required(value = false)
-        private Integer reorder;
-
-        public Integer getReorder() {
-            return reorder;
-        }
-
-        public void setReorder(Integer reorder) {
-            this.reorder = reorder;
+        public void setTicketGoodsId(String ticketGoodsId) {
+            this.ticketGoodsId = ticketGoodsId;
         }
     }
 }

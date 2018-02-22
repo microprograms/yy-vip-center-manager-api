@@ -12,7 +12,7 @@ import com.github.microprograms.micro_nested_data_model_runtime.Comment;
 import com.github.microprograms.micro_nested_data_model_runtime.Required;
 import com.github.microprograms.micro_api_runtime.utils.MicroApiUtils;
 
-@MicroApi(comment = "商品限购 - 查询全部", type = "read", version = "v0.0.18")
+@MicroApi(comment = "商品限购 - 查询全部", type = "read", version = "v0.0.20")
 public class GoodsBuyLimit_QueryAll_Api {
 
     private static Condition buildFinalCondition(Req req) {
@@ -39,7 +39,9 @@ public class GoodsBuyLimit_QueryAll_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "商品ID") @Required(value = true) private String goodsId;
+        @Comment(value = "商品ID")
+        @Required(value = true)
+        private String goodsId;
 
         public String getGoodsId() {
             return goodsId;
@@ -52,7 +54,9 @@ public class GoodsBuyLimit_QueryAll_Api {
 
     public static class Resp extends Response {
 
-        @Comment(value = "商品限购列表(全部)") @Required(value = true) private java.util.List<GoodsBuyLimit> data;
+        @Comment(value = "商品限购列表(全部)")
+        @Required(value = true)
+        private java.util.List<GoodsBuyLimit> data;
 
         public java.util.List<GoodsBuyLimit> getData() {
             return data;

@@ -14,7 +14,7 @@ import com.github.microprograms.micro_oss_core.MicroOss;
 import com.github.microprograms.micro_oss_core.exception.MicroOssException;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "商品限购 - 新增商品限购", type = "read", version = "v0.0.18")
+@MicroApi(comment = "商品限购 - 新增商品限购", type = "read", version = "v0.0.20")
 public class GoodsBuyLimit_Add_Api {
 
     private static Operator<?> getOperator(Req req) throws Exception {
@@ -66,7 +66,9 @@ public class GoodsBuyLimit_Add_Api {
 
     public static class Req extends Request {
 
-        @Comment(value = "Token") @Required(value = true) private String token;
+        @Comment(value = "Token")
+        @Required(value = true)
+        private String token;
 
         public String getToken() {
             return token;
@@ -76,7 +78,9 @@ public class GoodsBuyLimit_Add_Api {
             this.token = token;
         }
 
-        @Comment(value = "商品ID") @Required(value = true) private String goodsId;
+        @Comment(value = "商品ID")
+        @Required(value = true)
+        private String goodsId;
 
         public String getGoodsId() {
             return goodsId;
@@ -86,7 +90,9 @@ public class GoodsBuyLimit_Add_Api {
             this.goodsId = goodsId;
         }
 
-        @Comment(value = "用户昵称") @Required(value = true) private String userNickname;
+        @Comment(value = "用户昵称")
+        @Required(value = true)
+        private String userNickname;
 
         public String getUserNickname() {
             return userNickname;
@@ -96,7 +102,9 @@ public class GoodsBuyLimit_Add_Api {
             this.userNickname = userNickname;
         }
 
-        @Comment(value = "限购数量") @Required(value = true) private Integer amount;
+        @Comment(value = "限购数量")
+        @Required(value = true)
+        private Integer amount;
 
         public Integer getAmount() {
             return amount;

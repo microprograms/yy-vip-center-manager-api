@@ -383,6 +383,305 @@
 			"type": "read"
 		},
 		{
+			"comment": "卡密商品 - 查询列表",
+			"javaClassName": "TicketGoods_QueryList_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "页码(从0开始)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageIndex",
+						"required": true
+					},
+					{
+						"comment": "页大小",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "pageSize",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "卡密商品列表",
+						"example": "example",
+						"javaType": "java.util.List<TicketGoods>",
+						"name": "data",
+						"required": true
+					},
+					{
+						"comment": "分页",
+						"example": "example",
+						"javaType": "com.github.microprograms.micro_oss_core.model.dml.PagerResponse",
+						"name": "pager",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "卡密商品 - 查询详情",
+			"javaClassName": "TicketGoods_QueryDetail_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "卡密商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "ticketGoodsId",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "卡密商品详情",
+						"example": "example",
+						"javaType": "TicketGoods",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "卡密商品 - 查询剩余卡密列表",
+			"javaClassName": "TicketGoods_QueryTickets_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "卡密商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "ticketGoodsId",
+						"required": true
+					}
+				]
+			},
+			"responseDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "卡密列表",
+						"example": "example",
+						"javaType": "java.util.List<Ticket>",
+						"name": "data",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "卡密商品 - 添加新卡密商品",
+			"javaClassName": "TicketGoods_Publish_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "排序号(小的在前)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "reorder",
+						"required": true
+					},
+					{
+						"comment": "图片URL列表(JsonArray)",
+						"example": "example",
+						"javaType": "String",
+						"name": "pictureUrls",
+						"required": true
+					},
+					{
+						"comment": "商品名称",
+						"example": "example",
+						"javaType": "String",
+						"name": "name",
+						"required": true
+					},
+					{
+						"comment": "商品描述/属性",
+						"example": "example",
+						"javaType": "String",
+						"name": "desc",
+						"required": true
+					},
+					{
+						"comment": "商品价格(分)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "price",
+						"required": true
+					},
+					{
+						"comment": "商品价格(分) - 一级代理商",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "priceLevel1",
+						"required": true
+					},
+					{
+						"comment": "商品价格(分) - 二级代理商",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "priceLevel2",
+						"required": true
+					},
+					{
+						"comment": "商品价格(分) - 三级代理商",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "priceLevel3",
+						"required": true
+					},
+					{
+						"comment": "卡密列表(换行符分隔)",
+						"example": "example",
+						"javaType": "String",
+						"name": "tickets",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "卡密商品 - 编辑卡密商品",
+			"javaClassName": "TicketGoods_Update_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "卡密商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "ticketGoodsId",
+						"required": true
+					},
+					{
+						"comment": "排序号(小的在前)",
+						"example": "example",
+						"javaType": "Integer",
+						"name": "reorder",
+						"required": false
+					},
+					{
+						"comment": "图片URL列表(JsonArray)",
+						"example": "example",
+						"javaType": "String",
+						"name": "pictureUrls",
+						"required": false
+					},
+					{
+						"comment": "商品名称",
+						"example": "example",
+						"javaType": "String",
+						"name": "name",
+						"required": false
+					},
+					{
+						"comment": "商品描述/属性",
+						"example": "example",
+						"javaType": "String",
+						"name": "desc",
+						"required": false
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "卡密商品 - 下架",
+			"javaClassName": "TicketGoods_SoldOut_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "卡密商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "ticketGoodsId",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
+			"comment": "卡密商品 - 补货",
+			"javaClassName": "TicketGoods_Replenish_Api",
+			"requestDefinition": {
+				"fieldDefinitions": [
+					{
+						"comment": "Token",
+						"example": "example",
+						"javaType": "String",
+						"name": "token",
+						"required": true
+					},
+					{
+						"comment": "卡密商品ID",
+						"example": "example",
+						"javaType": "String",
+						"name": "ticketGoodsId",
+						"required": true
+					},
+					{
+						"comment": "卡密列表(换行符分隔)",
+						"example": "example",
+						"javaType": "String",
+						"name": "tickets",
+						"required": true
+					}
+				]
+			},
+			"type": "read"
+		},
+		{
 			"comment": "商品 - 查询列表",
 			"javaClassName": "Goods_QueryList_Api",
 			"requestDefinition": {
@@ -1439,5 +1738,5 @@
 		"apiToken": "05d9667b7c8062285198f75477c9a8af843174962",
 		"url": "https://www.showdoc.cc/server/api/item/updateByApi"
 	},
-	"version": "v0.0.18"
+	"version": "v0.0.20"
 }

@@ -2,7 +2,6 @@ package com.github.microprograms.yy_vip_center_manager_api.public_api;
 
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 import com.github.microprograms.micro_api_runtime.annotation.MicroApi;
 import com.github.microprograms.micro_api_runtime.model.Request;
 import com.github.microprograms.micro_api_runtime.model.Response;
@@ -14,40 +13,12 @@ import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.micro_oss_core.model.dml.PagerRequest;
 import com.github.microprograms.micro_oss_core.model.dml.PagerResponse;
 import com.github.microprograms.micro_oss_core.model.dml.Sort;
-import com.github.microprograms.micro_oss_core.model.dml.Where;
 
-@MicroApi(comment = "商品订单 - 查询列表", type = "read", version = "v0.0.20")
-public class MixOrder_QueryList_Api {
+@MicroApi(comment = "卡密商品 - 查询列表", type = "read", version = "v0.0.20")
+public class TicketGoods_QueryList_Api {
 
     private static Condition buildFinalCondition(Req req) {
-        Condition searchGoodsCategoryId = buildSearchGoodsCategoryIdCondition(req.getSearchGoodsCategoryId());
-        Condition searchStatus = buildSearchStatusCondition(req.getSearchStatus());
-        return Where.and(searchGoodsCategoryId, searchStatus);
-    }
-
-    private static Condition buildSearchGoodsCategoryIdCondition(String searchGoodsCategoryId) {
-        if (StringUtils.isBlank(searchGoodsCategoryId)) {
-            return null;
-        }
-        return Condition.build("goodsCategoryId=", searchGoodsCategoryId);
-    }
-
-    private static Condition buildSearchStatusCondition(int searchStatus) {
-        switch(searchStatus) {
-            case 0:
-                return null;
-            case 1:
-                return Condition.build("isDispose=", 0);
-            case 2:
-                return Where.and(Condition.build("isDispose=", 1), Condition.build("refundRequestStatus=", 0));
-            case 3:
-                return Condition.build("refundRequestStatus=", 1);
-            case 4:
-                return Condition.build("refundRequestStatus=", 2);
-            case 5:
-                return Condition.build("refundRequestStatus=", 3);
-        }
-        return null;
+        return Condition.build("isSoldOut=", 0);
     }
 
     private static List<Sort> buildSort(Req req) {
@@ -58,8 +29,8 @@ public class MixOrder_QueryList_Api {
         PagerRequest pager = new PagerRequest(req.getPageIndex(), req.getPageSize());
         Condition finalCondition = buildFinalCondition(req);
         List<Sort> sorts = buildSort(req);
-        resp.setData(MicroOss.queryAll(MixOrder.class, finalCondition, sorts, pager));
-        resp.setPager(new PagerResponse(pager, MicroOss.queryCount(MixOrder.class, finalCondition)));
+        resp.setData(MicroOss.queryAll(TicketGoods.class, finalCondition, sorts, pager));
+        resp.setPager(new PagerResponse(pager, MicroOss.queryCount(TicketGoods.class, finalCondition)));
     }
 
     public static Response execute(Request request) throws Exception {
@@ -67,7 +38,6 @@ public class MixOrder_QueryList_Api {
         MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
         MicroApiUtils.throwExceptionIfBlank(req.getPageIndex(), "pageIndex");
         MicroApiUtils.throwExceptionIfBlank(req.getPageSize(), "pageSize");
-        MicroApiUtils.throwExceptionIfBlank(req.getSearchStatus(), "searchStatus");
         Resp resp = new Resp();
         core(req, resp);
         return resp;
@@ -110,55 +80,19 @@ public class MixOrder_QueryList_Api {
         public void setPageSize(Integer pageSize) {
             this.pageSize = pageSize;
         }
-
-        @Comment(value = "搜索 - 关键字(订单号/商品名/商品编号)")
-        @Required(value = false)
-        private String searchKeyword;
-
-        public String getSearchKeyword() {
-            return searchKeyword;
-        }
-
-        public void setSearchKeyword(String searchKeyword) {
-            this.searchKeyword = searchKeyword;
-        }
-
-        @Comment(value = "搜索 - 商品分类")
-        @Required(value = false)
-        private String searchGoodsCategoryId;
-
-        public String getSearchGoodsCategoryId() {
-            return searchGoodsCategoryId;
-        }
-
-        public void setSearchGoodsCategoryId(String searchGoodsCategoryId) {
-            this.searchGoodsCategoryId = searchGoodsCategoryId;
-        }
-
-        @Comment(value = "搜索 - 状态(0全部,1未处理,2已处理,3退款审核中,4已退款,5已拒绝退款)")
-        @Required(value = true)
-        private Integer searchStatus;
-
-        public Integer getSearchStatus() {
-            return searchStatus;
-        }
-
-        public void setSearchStatus(Integer searchStatus) {
-            this.searchStatus = searchStatus;
-        }
     }
 
     public static class Resp extends Response {
 
-        @Comment(value = "商品订单列表")
+        @Comment(value = "卡密商品列表")
         @Required(value = true)
-        private java.util.List<MixOrder> data;
+        private java.util.List<TicketGoods> data;
 
-        public java.util.List<MixOrder> getData() {
+        public java.util.List<TicketGoods> getData() {
             return data;
         }
 
-        public void setData(java.util.List<MixOrder> data) {
+        public void setData(java.util.List<TicketGoods> data) {
             this.data = data;
         }
 

@@ -17,21 +17,22 @@ import com.github.microprograms.micro_oss_core.model.Field;
 import com.github.microprograms.micro_oss_core.model.dml.Condition;
 import com.github.microprograms.yy_vip_center_manager_api.utils.Fn;
 
-@MicroApi(comment = "商品类别 - 更新商品类别", type = "read", version = "v0.0.20")
-public class GoodsCategory_Update_Api {
+@MicroApi(comment = "卡密商品 - 编辑卡密商品", type = "read", version = "v0.0.20")
+public class TicketGoods_Update_Api {
 
     private static Operator<?> getOperator(Req req) throws MicroOssException {
-        return Fn.buildOperator(GoodsCategory_Update_Api.class, req.getToken());
+        return Fn.buildOperator(TicketGoods_Update_Api.class, req.getToken());
     }
 
     private static Condition buildFinalCondition(Req req) {
-        return Condition.build("id=", req.getCategoryId());
+        return Condition.build("id=", req.getTicketGoodsId());
     }
 
     private static List<Field> buildFieldsToUpdate(Req req) {
         List<Field> fields = new ArrayList<>();
-        fields.add(new Field("name", req.getName()));
         fields.add(new Field("desc", req.getDesc()));
+        fields.add(new Field("name", req.getName()));
+        fields.add(new Field("pictureUrls", req.getPictureUrls()));
         fields.add(new Field("reorder", req.getReorder()));
         return Fn.buildFieldsIgnoreBlank(fields);
     }
@@ -44,14 +45,13 @@ public class GoodsCategory_Update_Api {
             throw new MicroApiPassthroughException(MicroApiReserveResponseCodeEnum.permission_denied_exception);
         Condition finalCondition = buildFinalCondition(req);
         List<Field> fields = buildFieldsToUpdate(req);
-        MicroOss.updateObject(GoodsCategory.class, fields, finalCondition);
+        MicroOss.updateObject(TicketGoods.class, fields, finalCondition);
     }
 
     public static Response execute(Request request) throws Exception {
         Req req = (Req) request;
         MicroApiUtils.throwExceptionIfBlank(req.getToken(), "token");
-        MicroApiUtils.throwExceptionIfBlank(req.getCategoryId(), "categoryId");
-        MicroApiUtils.throwExceptionIfBlank(req.getDesc(), "desc");
+        MicroApiUtils.throwExceptionIfBlank(req.getTicketGoodsId(), "ticketGoodsId");
         Response resp = new Response();
         core(req, resp);
         return resp;
@@ -71,19 +71,43 @@ public class GoodsCategory_Update_Api {
             this.token = token;
         }
 
-        @Comment(value = "商品类别ID")
+        @Comment(value = "卡密商品ID")
         @Required(value = true)
-        private String categoryId;
+        private String ticketGoodsId;
 
-        public String getCategoryId() {
-            return categoryId;
+        public String getTicketGoodsId() {
+            return ticketGoodsId;
         }
 
-        public void setCategoryId(String categoryId) {
-            this.categoryId = categoryId;
+        public void setTicketGoodsId(String ticketGoodsId) {
+            this.ticketGoodsId = ticketGoodsId;
         }
 
-        @Comment(value = "商品类别名称")
+        @Comment(value = "排序号(小的在前)")
+        @Required(value = false)
+        private Integer reorder;
+
+        public Integer getReorder() {
+            return reorder;
+        }
+
+        public void setReorder(Integer reorder) {
+            this.reorder = reorder;
+        }
+
+        @Comment(value = "图片URL列表(JsonArray)")
+        @Required(value = false)
+        private String pictureUrls;
+
+        public String getPictureUrls() {
+            return pictureUrls;
+        }
+
+        public void setPictureUrls(String pictureUrls) {
+            this.pictureUrls = pictureUrls;
+        }
+
+        @Comment(value = "商品名称")
         @Required(value = false)
         private String name;
 
@@ -95,8 +119,8 @@ public class GoodsCategory_Update_Api {
             this.name = name;
         }
 
-        @Comment(value = "商品类别描述")
-        @Required(value = true)
+        @Comment(value = "商品描述/属性")
+        @Required(value = false)
         private String desc;
 
         public String getDesc() {
@@ -105,18 +129,6 @@ public class GoodsCategory_Update_Api {
 
         public void setDesc(String desc) {
             this.desc = desc;
-        }
-
-        @Comment(value = "排序")
-        @Required(value = false)
-        private Integer reorder;
-
-        public Integer getReorder() {
-            return reorder;
-        }
-
-        public void setReorder(Integer reorder) {
-            this.reorder = reorder;
         }
     }
 }

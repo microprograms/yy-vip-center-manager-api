@@ -8,7 +8,7 @@ import com.github.microprograms.micro_api_runtime.model.Response;
 import com.github.microprograms.yy_vip_center_manager_api.sdk.MicroOssInitializer;
 import com.github.microprograms.yy_vip_center_manager_api.sdk.SampleData;
 
-@MicroApi(comment = "调试 - 初始化数据库", type = "read", version = "v0.0.18")
+@MicroApi(comment = "调试 - 初始化数据库", type = "read", version = "v0.0.20")
 public class Debug_InitDatabase_Api {
 
     private static final Logger log = LoggerFactory.getLogger(Debug_InitDatabase_Api.class);

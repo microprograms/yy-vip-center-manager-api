@@ -599,6 +599,243 @@
 			"javaClassName": "Goods"
 		},
 		{
+			"comment": "卡密商品",
+			"fieldDefinitions": [
+				{
+					"comment": "卡密商品ID",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "id",
+					"primaryKey": 1,
+					"required": true
+				},
+				{
+					"comment": "排序号(小的在前)",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "reorder",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "图片URL列表(JsonArray)",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "pictureUrls",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "商品名称",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "name",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "商品描述/属性",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "desc",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "商品价格(分)",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "price",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "商品价格(分) - 一级代理商",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "priceLevel1",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "商品价格(分) - 二级代理商",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "priceLevel2",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "商品价格(分) - 三级代理商",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "priceLevel3",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "创建时间",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Long",
+					"name": "dtCreate",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "创建人ID",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "createrId",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "创建人登录名",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "createrLoginName",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "是否下架(0否1是)",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "isSoldOut",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "下架时间",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Long",
+					"name": "dtSoldOut",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "下架人ID",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "soldOutOperatorId",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "下架人登录名",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "soldOutOperatorLoginName",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "上次修改时间",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Long",
+					"name": "dtLastModify",
+					"primaryKey": 0,
+					"required": true
+				}
+			],
+			"javaClassName": "TicketGoods"
+		},
+		{
+			"comment": "卡密",
+			"fieldDefinitions": [
+				{
+					"comment": "卡密ID",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "id",
+					"primaryKey": 1,
+					"required": true
+				},
+				{
+					"comment": "卡密",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "ticket",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "卡密商品ID",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "ticketGoodsId",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "是否已售出(0否1是)",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "isSoldOut",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "售出时间",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Long",
+					"name": "dtSoldOut",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "卡密订单ID",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "ticketGoodsOrderId",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "创建时间",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Long",
+					"name": "dtCreate",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "上次修改时间",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Long",
+					"name": "dtLastModify",
+					"primaryKey": 0,
+					"required": true
+				}
+			],
+			"javaClassName": "Ticket"
+		},
+		{
 			"comment": "商品订单",
 			"fieldDefinitions": [
 				{
@@ -805,6 +1042,33 @@
 					"example": "example",
 					"javaType": "String",
 					"name": "refundRequestRejectReason",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "是否为卡密订单(0否1是)",
+					"defaultValue": 0,
+					"example": "example",
+					"javaType": "Integer",
+					"name": "isTicketGoodsOrder",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "卡密订单 - 购买数量",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "ticketGoodsOrder_amount",
+					"primaryKey": 0,
+					"required": true
+				},
+				{
+					"comment": "卡密订单 - 卡密列表(JsonArray)",
+					"defaultValue": "",
+					"example": "example",
+					"javaType": "String",
+					"name": "ticketGoodsOrder_tickets",
 					"primaryKey": 0,
 					"required": true
 				},
