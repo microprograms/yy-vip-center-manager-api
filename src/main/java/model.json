@@ -1056,10 +1056,10 @@
 				},
 				{
 					"comment": "卡密订单 - 购买数量",
-					"defaultValue": "",
+					"defaultValue": 0,
 					"example": "example",
-					"javaType": "String",
-					"name": "ticketGoodsOrder_amount",
+					"javaType": "Integer",
+					"name": "ticketGoodsOrder_buyAmount",
 					"primaryKey": 0,
 					"required": true
 				},

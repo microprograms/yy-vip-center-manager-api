@@ -33,19 +33,19 @@ public class MixOrder_QueryList_Api {
     }
 
     private static Condition buildSearchStatusCondition(int searchStatus) {
-        switch(searchStatus) {
-            case 0:
-                return null;
-            case 1:
-                return Condition.build("isDispose=", 0);
-            case 2:
-                return Where.and(Condition.build("isDispose=", 1), Condition.build("refundRequestStatus=", 0));
-            case 3:
-                return Condition.build("refundRequestStatus=", 1);
-            case 4:
-                return Condition.build("refundRequestStatus=", 2);
-            case 5:
-                return Condition.build("refundRequestStatus=", 3);
+        switch (searchStatus) {
+        case 0:
+            return null;
+        case 1:
+            return Where.and(Condition.build("isTicketGoodsOrder=", 0), Condition.build("isDispose=", 0));
+        case 2:
+            return Where.and(Condition.build("isTicketGoodsOrder=", 0), Condition.build("isDispose=", 1), Condition.build("refundRequestStatus=", 0));
+        case 3:
+            return Where.and(Condition.build("isTicketGoodsOrder=", 0), Condition.build("refundRequestStatus=", 1));
+        case 4:
+            return Where.and(Condition.build("isTicketGoodsOrder=", 0), Condition.build("refundRequestStatus=", 2));
+        case 5:
+            return Where.and(Condition.build("isTicketGoodsOrder=", 0), Condition.build("refundRequestStatus=", 3));
         }
         return null;
     }

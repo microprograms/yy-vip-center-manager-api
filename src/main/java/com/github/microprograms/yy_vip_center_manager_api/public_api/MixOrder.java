@@ -297,14 +297,14 @@ public class MixOrder {
 
     @Comment(value = "卡密订单 - 购买数量")
     @Required(value = true)
-    private String ticketGoodsOrder_amount = "";
+    private Integer ticketGoodsOrder_buyAmount = 0;
 
-    public String getTicketGoodsOrder_amount() {
-        return ticketGoodsOrder_amount;
+    public Integer getTicketGoodsOrder_buyAmount() {
+        return ticketGoodsOrder_buyAmount;
     }
 
-    public void setTicketGoodsOrder_amount(String ticketGoodsOrder_amount) {
-        this.ticketGoodsOrder_amount = ticketGoodsOrder_amount;
+    public void setTicketGoodsOrder_buyAmount(Integer ticketGoodsOrder_buyAmount) {
+        this.ticketGoodsOrder_buyAmount = ticketGoodsOrder_buyAmount;
     }
 
     @Comment(value = "卡密订单 - 卡密列表(JsonArray)")

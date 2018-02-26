@@ -22,7 +22,7 @@ public class TicketGoods_QueryList_Api {
     }
 
     private static List<Sort> buildSort(Req req) {
-        return Arrays.asList(Sort.desc("dtCreate"));
+        return Arrays.asList(Sort.asc("reorder"), Sort.desc("dtCreate"));
     }
 
     private static void core(Req req, Resp resp) throws Exception {
